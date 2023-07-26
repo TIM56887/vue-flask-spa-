@@ -29,4 +29,21 @@ export default {
     .card-text {
         height: 60%;
     }
+
+
+    @media (min-width: 768px) {
+        .card {
+            margin-left: 15px;
+     
+        }
+    }
+
+    @media (max-width: 768px) {
+        .card {
+            margin-bottom: 20px;
+     
+        }
+    }
+
+    
 </style>

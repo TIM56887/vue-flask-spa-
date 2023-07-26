@@ -102,7 +102,7 @@ export default {
     }
 
     h1 {
-        color: transparent;
+        color: #60a5fa;
         font-size: 1.5rem;
         font-weight: 700;
         font-family: inherit;
@@ -116,16 +116,13 @@ export default {
           width: 50%;
           height: 800px;    
           border-radius: 1rem;
-          /* color: #1d70d6; */
-          /* margin-left: 20%; */
-          /* border: 2px solid transparent; */
           box-shadow: inset 0 0 10px rgba(8, 8, 8,0.1); 
-          --tw-gradient-from: #60a5fa;
+          /* --tw-gradient-from: #60a5fa;
           --tw-gradient-to: #1d4ed8;
           --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
           background-image: linear-gradient(to right, var(--tw-gradient-stops));
           -webkit-background-clip: text;
-          background-clip: text;
+          background-clip: text; */
       }
     .comment-area{
         width: 100vw;
@@ -135,24 +132,16 @@ export default {
         justify-content: center;
     }
 
-    @media (min-width: 768px) {
-    /* .todoinput{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 95px;
-        
-    } */
     .showlist{
         height: 80%;
         overflow-y: auto;
     }
 
+    @media (min-width: 768px) {
+    
 
-    ul {
-     
-     overflow-y: auto;
-    }
+
+
 
 
 
@@ -169,9 +158,17 @@ export default {
 
 
     @media (max-width:768px) {
+        .background {
+            width: 99%;
+        }
+
+        .input-box{
+            height: 10%;
+            
+        }
 
 
-        h2{
+        /* h2{
 
             margin: 2rem 0 1rem 1rem;
             font-weight: 900;
@@ -192,8 +189,8 @@ export default {
             height: 70%;
             overflow-y: auto;
             margin: 1rem 0;
-        }
-        .suggestTodo {
+        } */
+        /* .suggestTodo {
             display: flex;
             flex-direction: column;
             width:70vw;
@@ -203,16 +200,16 @@ export default {
             padding: 0 0 0 0;
             border: 2px solid #ccc;
             box-shadow: 0 0 10px rgba(0,0,0,.1);
-        }   
-        input {
+        }    */
+        /* input {
             width: 90%;
             border-radius: 2rem;
             height: 3rem;
             opacity: 1;
             padding-left: 20px;
             margin: auto auto
-        }    
-        ul {
+        }     */
+        /* ul {
             height:100%;
             padding: 0 0 0 20px;
             
@@ -244,7 +241,7 @@ export default {
 
         .deleteButton:hover {
             background-color: rgb(204, 102, 102);
-        }
+        } */
 
 
 

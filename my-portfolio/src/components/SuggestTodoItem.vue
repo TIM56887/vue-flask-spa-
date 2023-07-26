@@ -132,11 +132,5 @@ export default {
     }
 
 
-    /* fds-blue-05: #ECF3FF;
-    --fds-blue-30: #AAC9FF;
-    --fds-blue-40: #77A7FF;
-    --fds-blue-60: #1877F2;
-    --fds-blue-70: #2851A3;
-    --fds-blue-80: #1D3C78;
-    --fds-button-text: #444950; */
+    
 </style>

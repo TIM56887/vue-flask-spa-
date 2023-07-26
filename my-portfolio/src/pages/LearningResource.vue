@@ -48,22 +48,38 @@ export default {
 </script>
 
 <style>
+
+@media (min-width: 768px) {
+    .box {
+        display: flex;
+        flex-direction: row;
+        margin-top: 50px;
+    }
+
+}
+
  .title {
     color:transparent;
     
     font-size: 1.8rem;
     font-weight: 600;
  }
-    .box {
-        display: flex;
-        flex-direction: row;
-        /* justify-content: ; */
-        margin-top: 50px;
-        
-    }
+    
     .learning-resource {
         margin-top: 100px;
         
+    }
+
+    @media (max-width: 768px) {
+        .box {
+            display: flex;
+            flex-direction: column;
+            margin-top: 50px;
+        }
+        .title {
+            text-align: center;
+        }
+
     }
     
 </style>
