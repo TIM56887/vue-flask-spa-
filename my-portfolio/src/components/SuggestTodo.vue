@@ -117,15 +117,10 @@ export default {
           height: 800px;    
           border-radius: 1rem;
           box-shadow: inset 0 0 10px rgba(8, 8, 8,0.1); 
-          /* --tw-gradient-from: #60a5fa;
-          --tw-gradient-to: #1d4ed8;
-          --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-          background-image: linear-gradient(to right, var(--tw-gradient-stops));
-          -webkit-background-clip: text;
-          background-clip: text; */
+
       }
     .comment-area{
-        width: 100vw;
+
         height: 100vh;
         display: flex;
         align-items: center;
