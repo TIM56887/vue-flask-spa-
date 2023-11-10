@@ -2,15 +2,15 @@
     <section class="profile">
         <div class="content">
             <div class="text">
-                <h1>Front-End  Vue.js Developer </h1>
-                <p>Hi, I'm Tim , and I am currently focusing on learning data analysis, data processing, and front-end development, I hope to continue improving in the future to expand my professional development field📍</p>
+                <h1>Hi, I'm Tim</h1>
+                <p>I am currently focusing on learning data analysis, data processing, and front-end development, I hope to continue improving in the future to expand my professional development field📍</p>
                 <p>你好 ! 我叫昌頡，正專注於資料分析、資料處裡、前端開發學習。希望未來能持續進步，以擴展自己的職業發展範疇。 </p>
                 
                 <a href="https://github.com/TIM56887" target="_blank">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
-            <img alt="profile picture" class="profilePc" src="../assets/IMG_3170.jpeg">
+            <img alt="profile picture" class="profilePc" src="../assets/IMG_2115.jpeg">
         </div>
         <div class="techStack">
             <h2>
@@ -93,10 +93,10 @@ export default {
     
     .profilePc{
         margin-left: 150px;
-        width:15rem;
+        width:auto;
         height: 15rem;
         border-radius: 50%;
-        background-size: cover;
+        background-size: contain;
         animation: morph 8s ease-in-out infinite;
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
         transition: all 2s ease-in-out;
@@ -232,7 +232,7 @@ export default {
     
     .profilePc{
         margin-left: 50px;
-        width:10rem;
+        width:auto;
         height: 10rem;
         border-radius: 50%;
         background-size: cover;

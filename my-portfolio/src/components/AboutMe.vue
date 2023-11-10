@@ -5,8 +5,8 @@
             <div class="aboutmetitle" ref="scrollElement">ABOUT ME </div>
         </h1>
         <div class="aboutMetitle">
-            <router-link active-class="active" to="/aboutlearn">學習歷程</router-link>
-            <router-link active-class="active" to="/aboutwork">工作經歷</router-link>
+            <router-link active-class="active" to="/aboutlearn">學習資源</router-link>
+            <router-link active-class="active" to="/aboutwork">經歷</router-link>
             <router-link active-class="active" to="/aboutlife">基本資料</router-link>
         </div>
         <div class="content">

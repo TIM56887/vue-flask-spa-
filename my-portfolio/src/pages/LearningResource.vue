@@ -1,6 +1,6 @@
 <template>
     <section class="learning-resource mb-5">
-        <h1 class="title">我的學習資源</h1>
+        
         <div class="box">
             <InfoBox v-for="content, index in learningcontent" :content="content" :key="index"/>
         </div>
