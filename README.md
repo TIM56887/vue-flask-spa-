@@ -13,8 +13,4 @@
 後端操作則由 Flask 處理。
 此外，還使用了關聯數據庫 MySQL 來管理應用程式的數據庫操作。
 
-
-![Alt text](/resume.png)
-![Alt text](/todo.png)
-### 歡迎您在網頁上進行輸入。您的意見對我來說非常重要並且非常感謝。
-### Your input is always welcome and greatly appreciated.
+## Your input is always welcome and greatly appreciated.
