@@ -5,9 +5,9 @@
             <div class="aboutmetitle" ref="scrollElement">ABOUT ME </div>
         </h1>
         <div class="aboutMetitle">
-            <router-link active-class="active" to="/aboutlearn">學習資源</router-link>
-            <router-link active-class="active" to="/aboutwork">經歷</router-link>
-            <router-link active-class="active" to="/aboutlife">基本資料</router-link>
+            <router-link active-class="active" to="/aboutlearn">Skills</router-link>
+            <router-link active-class="active" to="/aboutwork">Career</router-link>
+            <router-link active-class="active" to="/aboutlife">Contact</router-link>
         </div>
         <div class="content">
             <transition name="about">
@@ -98,7 +98,7 @@ export default {
         font-weight: 700;
         font-family: inherit;
         line-height: 1.1;
-        margin-top: 2rem;
+        /* margin-top: 1rem; */
         display: inline-block;
         color:transparent;
     }
@@ -115,7 +115,8 @@ export default {
         display: flex;
         justify-content: space-around;
         width:50%;
-        margin-top: 5rem;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
         /* height:clamp(1.3rem, 2rem ,3rem) */
         height: 4rem;
     }
@@ -179,7 +180,7 @@ export default {
         font-weight: 700;
         font-family: inherit;
         line-height: 1.1;
-        margin-top: 2rem;
+        /* margin-top: 2rem; */
         display: inline-block;
         color:transparent;
     }

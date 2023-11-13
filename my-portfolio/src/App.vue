@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <PortfolioResume />
+    <LearningResource />
     <AboutMe />
     <SuggestTodo />
-    <!-- <LearningResource /> -->
   </div>
   
 </template>
 
 <script>
 import PortfolioResume from './components/PortfolioResume.vue'
-
+import LearningResource from './components/LearningResource.vue'
 import AboutMe from './components/AboutMe.vue';
 
 import SuggestTodo from './components/SuggestTodo.vue'
@@ -20,10 +20,9 @@ export default {
   name: 'App',
   components: {
     PortfolioResume,
-    // LearningResource,
+    LearningResource,
     AboutMe,
     SuggestTodo
-    // RoadMap,
   },
   
   

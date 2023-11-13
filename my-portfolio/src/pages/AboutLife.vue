@@ -6,9 +6,11 @@
             <p>E-mail：timmy56887@icloud.com</p>
         </div>
         <div class="Picborder">
-            <img class="linePIC" src="../assets/lineimg.jpeg" alt="lineQRcode">
-            <div class="middle">
-                <div class="text">LINE ID :timmy56887</div>
+            <div class="picBox">
+                <img class="linePIC" src="../assets/lineimg.jpeg" alt="lineQRcode">
+                <div class="middle">
+                    <div class="text">ID:timmy56887</div>
+                </div>
             </div>
         </div>
     </div>
@@ -27,24 +29,31 @@ export default {
 
     
     @media (max-width:768px) {
-
+    .picBox {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    .picBox:hover .linePIC {
+        opacity: 0.3;
+    }
+    .picBox:hover .middle {
+        opacity: 1;
+    }
     .linePIC{
-        margin-top: 2rem;
         max-width: 200px;   
         max-height: 300px;
         position: absolute;
-        top: 25%;
-        left: 25%;
-        /* transform: translate(-50%, -50%); */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
     .Picborder {
-        position: relative;
         height: 300px;
-        }
+    }
 
     .linePIC {
         opacity: 1;
-        /* display: block; */
         width: 50%;
         height: auto;
         transition: .5s ease;
@@ -58,16 +67,10 @@ export default {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%)
+        -ms-transform: translate(-50%, -50%);
+        
     }
 
-    .linePIC:hover  {
-        opacity: 0.3;
-    }
-
-    .linePIC:hover +.middle {
-        opacity: 1;
-    }
 
     .text {
         background-color: #4CAF50;
@@ -98,53 +101,51 @@ export default {
     }
     }
     @media (min-width:768px) {
+        .picBox {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .picBox:hover .linePIC {
+            opacity: 0.3;
+        }
+        .picBox:hover .middle {
+            opacity: 1;
+        }
         .linePIC{
-        margin-top: 2rem;
-        max-width: 200px;   
-        max-height: 300px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .Picborder {
-        position: relative;
-        width:25%;
+            opacity: 1;
+            display: block;
+            width: 50%;
+            height: auto;
+            transition: .5s ease;
+            max-width: 200px;   
+            max-height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+            backface-visibility: hidden;
+        }
+        .Picborder {
+            width:25%;
+        }
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
         }
 
-    .linePIC {
-        opacity: 1;
-        /* display: block; */
-        width: 50%;
-        height: auto;
-        transition: .5s ease;
-        backface-visibility: hidden;
-    }
-
-    .middle {
-        transition: .5s ease;
-        opacity: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%)
-    }
-
-    .linePIC:hover  {
-        opacity: 0.3;
-    }
-
-    .linePIC:hover +.middle {
-        opacity: 1;
-    }
-
-    .text {
-        background-color: #4CAF50;
-        color: white;
-        font-size: 0.8rem;
-        padding: 16px 32px;
-    }
+        .text {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 0.8rem;
+            padding: 16px 32px;
+        }
 
 
         .content{
