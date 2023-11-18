@@ -1,8 +1,10 @@
 <template>
   <div id="app">
+    <NavBar />
     <PortfolioResume />
+    <PortfolioList />
     <LearningResource />
-    <AboutMe />
+    <AboutMe1 />
     <SuggestTodo />
   </div>
   
@@ -10,19 +12,23 @@
 
 <script>
 import PortfolioResume from './components/PortfolioResume.vue'
-import LearningResource from './components/LearningResource.vue'
-import AboutMe from './components/AboutMe.vue';
-
+// import LearningResource from './components/LearningResource.vue'
+// import AboutMe from './components/AboutMe.vue';
+import PortfolioList from './components/PortfolioList.vue'
 import SuggestTodo from './components/SuggestTodo.vue'
-// import LearningResource from './components/LearningResource.vue';
+import LearningResource from './components/LearningResource.vue';
+import AboutMe1 from './components/AboutMe1.vue';
+import NavBar from './components/NavBar.vue'
 import "animate.css";
 export default {
   name: 'App',
   components: {
     PortfolioResume,
     LearningResource,
-    AboutMe,
-    SuggestTodo
+    AboutMe1,
+    SuggestTodo,
+    PortfolioList,
+    NavBar
   },
   
   

@@ -6,7 +6,10 @@
             <p class="card-text">{{ content.review }}</p>
         </div>
         <div class="link">
-            <a :href=" content.url " class="hover-button" target="_blank" >Go Look!</a>
+            <a :href=" content.url " class="hover-button" target="_blank" >
+                <i class="bi bi-box-arrow-up-right"></i>
+                Go Try !
+            </a>
         </div>
     </div>
 </template>
@@ -18,7 +21,7 @@ export default {
 }
 </script>
     
-<style>
+<style scoped>
     .card {
         margin: 30px 0 0 30px;
         width:270px;
@@ -51,24 +54,30 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         border: 1px solid black;
-        border-radius: 10px;
+        border-radius: 4px;
         width:10rem;
         text-align: center;
+        border: 1px solid rgb(199, 199, 199);
     }
     .card:hover .link {
         opacity: 1;
     }
     .hover-button {
-        font-size: 1.6rem;
+        height: 50px;
+        font-size: 1.5rem;
         text-decoration: none;
         color: black;
+        font-weight: 300 !important;
     }
     .link:hover {
-        /* background-color: rgba(0, 170, 255, 0.7); */
-        --tw-gradient-from: #edf2f8;
-        --tw-gradient-to: #4cb7fe;
-        --tw-gradient-stops: white 5%,var(--tw-gradient-from) 30%, var(--tw-gradient-to);
-        background-image: linear-gradient(to top right, var(--tw-gradient-stops));
+        --tw-gradient-from: #60a5fa;
+        --tw-gradient-to: #3e6ff8;
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+        background-image: linear-gradient(to right bottom, var(--tw-gradient-stops));
+        
+    }
+    .link:hover a {
+        color: white;
     }
     
 

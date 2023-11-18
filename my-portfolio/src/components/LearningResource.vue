@@ -1,11 +1,11 @@
 <template>
-    <section class="learning-resource mb-5">
+    <section class="learning-resource" id="section2">
         <div class="title">
             Resources
         </div>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-3 side-bar">
+            <div class="row justify-content-center">
+                <div class="col-2 col-xxl-2 side-bar">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">
                             <i class="bi bi-search"></i>
@@ -22,7 +22,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-9 content">
+                <div class="col-8 col-xxl-7 content">
                     <div class="box">
                         <InfoBox v-for="content, index in filterLearningContent" :content="content" :key="index"/>
                     </div>
@@ -91,6 +91,13 @@ export default {
                     url:'https://cssgridgarden.com/',
                     img:require('../assets/cssgrid.png')
                 },
+                {
+                    title:'css-tricks.com',
+                    review:'Free website to upskill your css',
+                    url:'https://cssgridgarden.com/',
+                    img:require('../assets/css-trick.png')
+                },
+                
             ],
         }
     },
@@ -117,21 +124,25 @@ export default {
 
 .title {
     text-align: center;
-    color:transparent;
-    font-size: 2rem;
-    font-weight: 600;
+    color:#1e1e1e;
+    font-size: 3rem;
+    font-weight: 900;
     --tw-gradient-from: #60a5fa;
     --tw-gradient-to: #1d4ed8;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
     background-image: linear-gradient(to right, var(--tw-gradient-stops));
     -webkit-background-clip: text;
     background-clip: text;
+    padding-top: 150px;
 }
 .content {
-    padding-right: 3rem;
+    /* padding-right: 3rem; */
+    padding-left: 5rem;
+    margin-bottom: 5rem;
 }
 .learning-resource {
     min-height: 150vh;
+    background-color: #f6f7f8;
 }
 .side-bar {
     margin-top: 120px;
@@ -189,6 +200,7 @@ export default {
             display: flex;
             flex-direction: column;
             margin-top: 50px;
+            
         }
         .title {
             text-align: center;

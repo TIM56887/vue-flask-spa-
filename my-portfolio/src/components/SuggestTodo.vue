@@ -1,9 +1,9 @@
 <template>
     <section class="comment-area">
-        <div class="background d-flex flex-column">
+        <div class=" d-flex flex-column">
             <h1>
-                <div class="text-center ">
-                    Leave a Reply . . .
+                <div class="text-center fs-3">
+                    Comment . . .
                 </div>
             </h1>
             <div class="suggestTodo h-100 d-flex flex-column  ">
@@ -102,7 +102,7 @@ export default {
     }
 
     h1 {
-        color: #60a5fa;
+        /* color: #60a5fa; */
         font-size: 1.5rem;
         font-weight: 700;
         font-family: inherit;

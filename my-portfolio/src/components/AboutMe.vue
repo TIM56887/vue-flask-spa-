@@ -49,7 +49,6 @@ export default {
                         
                     }
                 }
-            // }
             // 更新最後滾輪的位置
             // this.lastScrollPosition = scrollPosition;
         },
