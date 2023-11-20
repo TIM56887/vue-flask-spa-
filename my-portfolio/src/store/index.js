@@ -6,13 +6,13 @@ const actions = {
     SendTodo(context,value){
         axios.post('/addtodo',value).then(
             response =>{
-                console.log('請求成功了，這是資料庫回傳的data',response.data)
+                console.log('請求成功了',response.data)
                 localStorage.setItem('userId', response.data.userid);
                 context.state.userstodo.push(response.data.contentid)
                 context.dispatch('gettodo')
             },
             error => {
-                console.log('哇靠!請求失敗了',error.message)
+                console.log('請求失敗',error.message)
             }
         )
         
@@ -24,14 +24,14 @@ const actions = {
                 context.commit('GETTODO',response.data)
             },
             error => {
-                console.log('請求失敗了',error.message)
+                console.log('請求失敗',error.message)
             }
         )
     },
     deletetodo(context,id){
         axios.post('/deletetodo',{'id': id}).then(
             response =>{
-                console.log('請求成功了',response.data)
+                console.log('請求成功',response.data)
                 context.dispatch('gettodo')
             },
             error => {
@@ -59,11 +59,10 @@ const actions = {
                     return item.id;
                 })
                 context.commit('GETUSERTODO',userstodo)
-                // localStorage.setItem('userId', response.data.userid);
-                // context.dispatch('gettodo')
+
             },
             error => {
-                console.log('哇靠!請求失敗了',error.message)
+                console.log('請求失敗',error.message)
             }
         )
     }
@@ -82,7 +81,6 @@ const mutations = {
     EDITTODO(state,value){
         let obj = state.todo.find(item => item.id === value.id);
         obj.task =  value.content
-        console.log(obj,state.todo)
     }
     
 }

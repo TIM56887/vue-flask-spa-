@@ -4,8 +4,8 @@
             Resources
         </div>
         <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-2 col-xxl-2 side-bar">
+            <div class="row justify-content-center p-0">
+                <div class="col-md-2 col-xxl-2 side-bar">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">
                             <i class="bi bi-search"></i>
@@ -22,9 +22,12 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-8 col-xxl-7 content">
+                <div class="col-md-9 col-xxl-7 content p-0">
                     <div class="box">
-                        <InfoBox v-for="content, index in filterLearningContent" :content="content" :key="index"/>
+                        <InfoBox v-for="content, index in filterLearningContent" 
+                        :content="content" 
+                        :key="index"
+                        />
                     </div>
                 </div>
             </div>
@@ -97,6 +100,24 @@ export default {
                     url:'https://cssgridgarden.com/',
                     img:require('../assets/css-trick.png')
                 },
+                {
+                    title:'Python and AI',
+                    review:'Free videos on Python and AI, including tutorials on TensorFlow, NumPy, and Pandas.',
+                    url:'https://www.youtube.com/@MorvanZhou/playlists',
+                    img:require('../assets/mofan.png')
+                },
+                {
+                    title:' NLP spaCy',
+                    review:'spaCy tutorial,natural language processing.',
+                    url:'https://www.youtube.com/watch?v=dIUTsFT2MeQ',
+                    img:require('../assets/spacy.png')
+                },
+                {
+                    title:' SQL ZOO',
+                    review:'Learn SQL step by step',
+                    url:'https://sqlzoo.net/wiki/SQL_Tutorial',
+                    img:require('../assets/sqlzoo.png')
+                },
                 
             ],
         }
@@ -115,48 +136,61 @@ export default {
         },
         cleanSearch(){
             this.searchValue = ""
-        }
+        },
     }
 }
 </script>
 
 <style scoped>
 
-.title {
-    text-align: center;
-    color:#1e1e1e;
-    font-size: 3rem;
-    font-weight: 900;
-    --tw-gradient-from: #60a5fa;
-    --tw-gradient-to: #1d4ed8;
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-    background-image: linear-gradient(to right, var(--tw-gradient-stops));
-    -webkit-background-clip: text;
-    background-clip: text;
-    padding-top: 150px;
-}
-.content {
-    /* padding-right: 3rem; */
-    padding-left: 5rem;
-    margin-bottom: 5rem;
-}
-.learning-resource {
-    min-height: 150vh;
-    background-color: #f6f7f8;
-}
-.side-bar {
-    margin-top: 120px;
-    position: sticky;
-    top: 200px;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.input-group{
-    width: 200px;
-}
+
+@media (min-width: 768px) {
+    .content {
+    
+        padding-left: 5rem;
+        margin-bottom: 5rem;
+    }
+    .input-group {
+        max-width:300px;
+    }
+    .box {
+        display: flex;
+        flex-direction: row;
+        margin-top: 50px;
+        flex-wrap: wrap;
+    }
+    .title {
+        text-align: center;
+        color:#1e1e1e;
+        font-size: 3rem;
+        font-weight: 900;
+        --tw-gradient-from: #60a5fa;
+        --tw-gradient-to: #1d4ed8;
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+        background-image: linear-gradient(to right, var(--tw-gradient-stops));
+        -webkit-background-clip: text;
+        background-clip: text;
+        padding-top: 150px;
+    }
+
+    .learning-resource {
+        min-height: 150vh;
+        background-color: #f6f7f8;
+    }
+    .side-bar {
+        margin-top: 120px;
+        position: sticky;
+        top: 200px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 800;
+    }
+    .input-group{
+        width: 200px;
+    }
 
     li {
         border:1px solid #b7b5b5;
@@ -178,32 +212,76 @@ export default {
         color: transparent;
         border:1px solid #b6b7b7;;
     }
-@media (min-width: 768px) {
-    .input-group {
-        max-width:300px;
-    }
-    .box {
-        display: flex;
-        flex-direction: row;
-        margin-top: 50px;
-        flex-wrap: wrap;
-    }
 
 }
 
 
     @media (max-width: 768px) {
-        .input-group {
-            max-width:250px;
-        }
         .box {
             display: flex;
             flex-direction: column;
-            margin-top: 50px;
+            
             
         }
+        .content {
+            
+            padding-left: 5rem;
+            margin-bottom: 5rem;
+        }
+        .input-group {
+            max-width:90%;
+        }
+
         .title {
             text-align: center;
+            color:#1e1e1e;
+            font-size: 2rem;
+            font-weight: 600;
+            --tw-gradient-from: #60a5fa;
+            --tw-gradient-to: #1d4ed8;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+            background-image: linear-gradient(to right, var(--tw-gradient-stops));
+            -webkit-background-clip: text;
+            background-clip: text;
+            padding-top: 20px;
+        }
+
+        .learning-resource {
+            min-height: 150vh;
+            background-color: #f6f7f8;
+        }
+        .side-bar {
+            margin-top: 10px; 
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            z-index: 800;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+        }
+        li {
+            border:1px solid #b7b5b5;
+            color: #3c3c3c;
+            border-radius: 10px;
+            display: block;
+            width: 100px;
+            text-align: center;
+            margin-bottom: 15px;
+            --tw-gradient-from: #60a5fa;
+            --tw-gradient-to: #1d4ed8;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+            background-image: linear-gradient(to right, var(--tw-gradient-stops));
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        li:hover {
+            opacity: 1;
+            color: transparent;
+            border:1px solid #b6b7b7;;
         }
 
     }

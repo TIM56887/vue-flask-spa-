@@ -1,7 +1,4 @@
 import VueRouter from "vue-router";
-
-// import AboutLearn from '../pages/AboutLearn.vue'
-// import AboutWork from '../pages/AboutWork.vue'
 import AboutLife from '../pages/AboutLife.vue'
 
 
