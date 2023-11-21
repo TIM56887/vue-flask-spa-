@@ -2,17 +2,17 @@
 <nav class="navbar">
     <div class="container-fluid">
         <div class="row w-100 justify-content-between">
-            <div class="col-1 d-flex align-items-center ps-4 ">
+            <div class="col-3 d-flex align-items-center ps-4 ">
                 <h1 class="fs-4 lh-lg"><a href="" class="text-decoration-none fw-bold text-secondary">TIM</a></h1>
             </div>
             <div class="col-xxl-5 col-6 "> 
-                <ul class="w-100 d-flex fs-4 lh-lg text-center menu justify-content-center" >
+                <ul class="w-100 d-flex lh-lg fs-4 text-center text-nowrap menu justify-content-center" >
                     <li class="w-25 rounded" @click="scrollTo('section1')">Project</li>
                     <li class="w-25 rounded" @click="scrollTo('section2')">Resources</li>
                     <li class="w-25 rounded" @click="scrollTo('section3')">About me</li>
                 </ul>
             </div>
-            <div class="col-1 hamburger">
+            <div class="col-3 hamburger">
                 <button class="navbar-toggler" type="button" @click="showMenu" >
                     <span class="navbar-toggler-icon"></span>
                 </button>
