@@ -47,6 +47,33 @@
                     </div>
                 </div>
             </div>
+            <div class="row justify-content-center main-content3 mt-4">
+                <div class=" col-10 col-md-5 col-xxl-4 preview3">                    
+                    <div class="">
+                        <img class="icon" src="../assets/ntp.png" alt="lolPic">
+                    </div>
+                    <div class="title fs-1 fw-bolder mt-1 mt-md-3">新北市房價預測系統</div>
+                    <div class="fs-3 tag fw-bolder mt-1 mt-md-3">data processing</div>
+                    <div class="fw-bolder mt-1 main-text">
+                        <p>使用新北市政府提供之房價實價登錄資料。
+                        利用python Pandas進行資料清理，經過系列的前處理步驟，處理缺失值、轉換類別資料特徵等，使得原始資料達到了可以進行模型訓練的狀態。使用scikit-learn線性回歸模型進行訓練。
+                        訓練及測試資料共29,764筆，特徵共13種(區域、土地坪數、樓層、最高樓層、建物型態、屋齡、建物總面積、房廳衛數、有無管理組織及電梯)
+                        
+                        </p>
+                    </div>
+                    <div class="linkArea">
+                        <a href="/predict" class="link">
+                            <i class="bi bi-box-arrow-up-right"></i>
+                            <div class="linkTxt">Go Try !</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-10 col-md-5 col-xxl-4 imgArea3">
+                    <div class="image">
+                        <img src="../assets/houseprice.png" alt="lol" class="housePricePC">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </template>
@@ -61,7 +88,7 @@
 
     .main-contnet {
         padding-top: 200px;
-        height: 70vh;
+        min-height: 70vh;
     }
     .vertical-dashed-line:after {
         content: '';
@@ -71,6 +98,18 @@
         bottom: 0;
         border-left: 1px dashed rgb(172, 172, 172); /* 添加虚线 */
         
+    }
+    .vertical-dashed-line:before {
+        content: ''; /* 伪元素内容为空 */
+        position: absolute; /* 绝对定位 */
+        left: 49.7%; /* 根据需要调整位置 */
+        top: 63%; /* 圆圈的垂直位置 */
+        width: 10px; /* 圆圈的宽度 */
+        height: 10px; /* 圆圈的高度 */
+        background-color: white; /* 圆圈的颜色 */
+        border-radius: 50%; /* 圆形 */
+        border: 1px solid rgba(30,30,30,.3);
+        z-index: 1000;
     }
     .dashed-line-with-circle:after {
         content: ''; /* 伪元素内容为空 */
@@ -87,7 +126,7 @@
         content: ''; /* 伪元素内容为空 */
         position: absolute; /* 绝对定位 */
         left: 49.75%; /* 根据需要调整位置 */
-        top: 35%; /* 圆圈的垂直位置 */
+        top: 33%; /* 圆圈的垂直位置 */
         width: 10px; /* 圆圈的宽度 */
         height: 10px; /* 圆圈的高度 */
         background-color: white; /* 圆圈的颜色 */
@@ -123,7 +162,6 @@
         padding-left: 100px;
         padding-right: 50px;
     }
-
     .preview2 {
         --tw-gradient-from: #07b581;
         --tw-gradient-to: #07b53b;
@@ -132,8 +170,20 @@
         -webkit-background-clip: text;
         background-clip: text;
         padding-left: 70px;
-        margin-top: 200px;
-        margin-bottom: 25%;
+        margin-top: 100px;
+        margin-bottom: 14%;
+    }
+    .preview3 {
+        --tw-gradient-from: #60a5fa;
+        --tw-gradient-to: #1d4ed8;
+        --tw-gradient-stops: white 2%,var(--tw-gradient-from) 15%, var(--tw-gradient-to);
+        background-image: linear-gradient(to right bottom, var(--tw-gradient-stops));
+        -webkit-background-clip: text;
+        background-clip: text;
+        position: relative;
+        padding-left: 100px;
+        padding-right: 50px;
+        margin-bottom: 150px;
     }
     .tag {
         color: transparent;
@@ -158,15 +208,24 @@
         height: 500px;
         width: 100%;
         object-fit: cover;
-        /* object-position: center; */
+        object-position: top left;
     }
-
+    .housePricePC{
+        height: 440px;
+        width: 100%;
+        object-fit: cover;
+        object-position: top left; 
+    }
     .mapImg {
          
         width: 100%;
     }
     .imgArea {
         padding: 0;
+    }
+    .imgArea3 {
+        padding: 0;
+        margin-top: 130px   ;
     }
     .imgArea2 {
         padding-left: 100px;
@@ -217,6 +276,10 @@
         flex-direction: column-reverse;
         
     }
+    .main-content3 {
+        align-items: center;
+        flex-direction: column-reverse;
+    }
     .vertical-dashed-line:after {
         content: '';
         position: absolute;
@@ -238,11 +301,23 @@
         border: 1px solid rgba(30,30,30,.3);
         z-index: 0;
     }
+    .vertical-dashed-line:before {
+        content: ''; /* 伪元素内容为空 */
+        position: absolute; /* 绝对定位 */
+        left: 4%; /* 根据需要调整位置 */
+        top: 71%; /* 圆圈的垂直位置 */
+        width: 10px; /* 圆圈的宽度 */
+        height: 10px; /* 圆圈的高度 */
+        background-color: white; /* 圆圈的颜色 */
+        border-radius: 50%; /* 圆形 */
+        border: 1px solid rgba(30,30,30,.3);
+        z-index: 1000;
+    }
     .dashed-line-with-circle:before {
         content: ''; /* 伪元素内容为空 */
         position: absolute; /* 绝对定位 */
         left: 4%; /* 根据需要调整位置 */
-        top: 40%; /* 圆圈的垂直位置 */
+        top: 33%; /* 圆圈的垂直位置 */
         width: 10px; /* 圆圈的宽度 */
         height: 10px; /* 圆圈的高度 */
         background-color: white; /* 圆圈的颜色 */
@@ -275,7 +350,6 @@
         -webkit-background-clip: text;
         background-clip: text;
         position: relative;
-        /* padding-left: 10px; */
         
     }
 
@@ -288,6 +362,16 @@
         background-clip: text;
         margin-top: 15px;
         margin-bottom: 25%;
+    }
+    .preview3{
+        --tw-gradient-from: #60a5fa;
+        --tw-gradient-to: #1d4ed8;
+        --tw-gradient-stops: white 2%,var(--tw-gradient-from) 15%, var(--tw-gradient-to);
+        background-image: linear-gradient(to right bottom, var(--tw-gradient-stops));
+        -webkit-background-clip: text;
+        background-clip: text;
+        position: relative;
+        margin-bottom: 50px;
     }
     .tag {
         color: transparent;
@@ -315,7 +399,13 @@
         object-fit: cover;
         object-position: top left;
     }
-
+    .housePricePC{
+        border-radius: 40px;
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        object-position: top left;
+    }
     .mapImg { 
         width: 100%;
         height: 400px;
@@ -331,6 +421,9 @@
         /* padding-left: 100px; */
         padding-right: 0;
         text-align: right;
+    }
+    .imgArea3 {
+        display: none;
     }
     .link {
         display: flex;

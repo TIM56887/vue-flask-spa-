@@ -3,9 +3,9 @@
         <div class="title">
             Resources
         </div>
-        <div class="container-fluid">
+        <div class="container-xxl">
             <div class="row justify-content-center p-0">
-                <div class="col-md-2 col-xxl-2 side-bar">
+                <div class="col-md-2  col-xl-2 col-xxl-2 side-bar">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">
                             <i class="bi bi-search"></i>
@@ -22,7 +22,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-9 col-xxl-7 content p-0">
+                <div class="col-md-9 col-xl-8 col-xxl-9 content p-0">
                     <div class="box">
                         <InfoBox v-for="content, index in filterLearningContent" 
                         :content="content" 
@@ -118,6 +118,13 @@ export default {
                     url:'https://sqlzoo.net/wiki/SQL_Tutorial',
                     img:require('../assets/sqlzoo.png')
                 },
+                {
+                    title:' C#',
+                    review:'C# cheat sheet',
+                    url:'https://www.thecodingguys.net/resources/cs-cheat-sheet.pdf',
+                    img:require('../assets/cs.png')
+                },
+
                 
             ],
         }

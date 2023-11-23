@@ -6,20 +6,20 @@
     <LearningResource />
     <AboutMe1 />
     <SuggestTodo />
+    <!-- <HousePrice/> -->
   </div>
   
 </template>
 
 <script>
 import PortfolioResume from './components/PortfolioResume.vue'
-// import LearningResource from './components/LearningResource.vue'
-// import AboutMe from './components/AboutMe.vue';
 import PortfolioList from './components/PortfolioList.vue'
 import SuggestTodo from './components/SuggestTodo.vue'
 import LearningResource from './components/LearningResource.vue';
 import AboutMe1 from './components/AboutMe1.vue';
 import NavBar from './components/NavBar.vue'
 import "animate.css";
+// import HousePrice from './components/HousePrice.vue';
 export default {
   name: 'App',
   components: {
@@ -28,7 +28,8 @@ export default {
     AboutMe1,
     SuggestTodo,
     PortfolioList,
-    NavBar
+    NavBar,
+    // HousePrice
   },
   
   

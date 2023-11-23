@@ -1,6 +1,6 @@
 <template>
     <section class="comment-area">
-        <div class=" d-flex flex-column">
+        <div class=" d-flex flex-column mt-5">
             <h1>
                 <div class="text-center fs-3">
                     Comment . . .
@@ -22,7 +22,7 @@
                         aria-label="Sizing example input" 
                         aria-describedby="inputGroup-sizing-lg"
                         placeholder="your input is always good . . ." 
-                        maxlength="100"
+                        maxlength="25"
                         @keydown.enter="addnewtodo" 
                         v-model="inputData"
                     >
@@ -121,7 +121,7 @@ export default {
       }
     .comment-area{
 
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;

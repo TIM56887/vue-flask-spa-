@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request, render_template
 import pymysql.cursors
 from nanoid import generate
 from sql import TodoDB
-
+from household import caculate 
     
 
 DB = TodoDB()
@@ -56,6 +56,22 @@ def getUserTodo():
     print(userstodo,'------------')
     return jsonify(userstodo)
 
+@app.route('/process', methods=['POST'])
+def process_form():
+    form_data = request.form  # 获取表单数据
+    data = []
+    for key, value in form_data.items():
+        data.append(value)
+    price = int(caculate(data))
+    predictPrice = {
+        "data":data,
+        "price":price
+    }
+    return render_template('housePricePrediction.html',predictPrice=predictPrice)
+
+@app.route('/predict')
+def predict():
+    return render_template('housePricePrediction.html',predictPrice={"data":"none"})  
 
 
 if __name__ == '__main__':

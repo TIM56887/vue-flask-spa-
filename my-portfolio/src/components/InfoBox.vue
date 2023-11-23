@@ -62,9 +62,11 @@ export default {
             /* width:auto; */
             text-align: center;
             border: 1px solid rgb(199, 199, 199);
-            /* height: 40px; */
-            padding: 10px;
-            text-wrap: nowrap;
+            height: 50px;
+            width: 150px;
+            line-height: 50px;
+            
+            
         }
         .card:hover .link {
             opacity: 1;
