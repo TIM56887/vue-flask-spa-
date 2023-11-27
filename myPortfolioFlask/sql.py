@@ -59,4 +59,32 @@ class TodoDB:
             cursor.execute(sql)
             return "ok"
 
+class quizDB:
+    def __init__(self):
+        self.connection = pymysql.connect(
+            host='localhost',
+            user='root',
+            password=password,
+            database='codeQuiz',
+            cursorclass=pymysql.cursors.DictCursor)
+    def getQuestion(self,amount):
+        self.connection.ping(reconnect=True)
+        with self.connection.cursor() as cursor:
+                sql = f"select * from questions ORDER BY RAND() LIMIT {amount};"
+                cursor.execute(sql)
+                result = cursor.fetchall()
+                return result
+    
+    def addQuestion(self,question):
+        self.connection.ping(reconnect=True)
+        with self.connection.cursor() as cursor:
+            sql = f"INSERT INTO questions (question, question_code, option1, option2, option3, option4, answer, question_type, explanation) VALUES ('{question['question']}', '{question['code']}', '{question['option'][0]}', '{question['option'][1]}', '{question['option'][2]}', '{question['option'][3]}', '{question['answer']}', '{question['type']}', '{question['explanation']}' );" 
+            cursor.execute(sql)
+            self.connection.commit()
+            return cursor.lastrowid
 
+    def deleteQuestion(self,questionID):
+        pass
+
+    def editQuestion(self,newValue):
+        pass

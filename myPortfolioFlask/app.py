@@ -3,11 +3,12 @@ from flask import Flask, jsonify, request, render_template
 import pymysql.cursors
 from nanoid import generate
 from sql import TodoDB
+from sql import quizDB
 from household import caculate 
     
 
 DB = TodoDB()
-
+DB2 = quizDB()
 
 app = Flask(__name__,
             static_folder='./dist',
@@ -73,6 +74,11 @@ def process_form():
 def predict():
     return render_template('housePricePrediction.html',predictPrice={"data":"none"})  
 
-
+@app.route('/quiz')
+def getQuiz():
+    data = DB2.getQuestion(10)
+    print(data)
+    return jsonify(data)
+    
 if __name__ == '__main__':
     app.run(debug=True)
