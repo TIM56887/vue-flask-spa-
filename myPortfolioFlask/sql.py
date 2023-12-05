@@ -82,7 +82,16 @@ class quizDB:
             cursor.execute(sql)
             self.connection.commit()
             return cursor.lastrowid
-
+        
+    def getNewQuestion(self,previosQID):
+        self.connection.ping(reconnect=True)
+        with self.connection.cursor() as cursor:
+                sql = "SELECT * FROM questions WHERE question_id NOT IN (%s) LIMIT 5"
+                in_p = ', '.join(list(map(lambda x: '%s', previosQID)))
+                sql = sql % in_p
+                cursor.execute(sql, previosQID)
+                result = cursor.fetchall()
+                return result
     def deleteQuestion(self,questionID):
         pass
 

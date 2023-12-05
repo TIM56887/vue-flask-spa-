@@ -1,5 +1,4 @@
-
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, send_from_directory
 import pymysql.cursors
 from nanoid import generate
 from sql import TodoDB
@@ -18,6 +17,14 @@ app = Flask(__name__,
 @app.route('/')
 def index():
     return render_template('index.html',name='index')
+
+@app.route('/jsquiz')
+def jsquiz():
+    return send_from_directory('./dist2','index.html')
+
+@app.route('/assets/<path:path>')
+def static_files(path):
+    return send_from_directory('dist2', 'assets/'+path)
 
 @app.route('/todo', methods=['GET'])
 def todo():
@@ -59,7 +66,7 @@ def getUserTodo():
 
 @app.route('/process', methods=['POST'])
 def process_form():
-    form_data = request.form  # 获取表单数据
+    form_data = request.form 
     data = []
     for key, value in form_data.items():
         data.append(value)
@@ -76,8 +83,14 @@ def predict():
 
 @app.route('/quiz')
 def getQuiz():
-    data = DB2.getQuestion(10)
-    print(data)
+    data = DB2.getQuestion(5)
+    return jsonify(data)
+
+@app.route('/fivequiz', methods=['POST'])
+def fivequiz():
+    data = request.get_json()
+    previousQID = data['currentQuestionIds']
+    data = DB2.getNewQuestion(previousQID)
     return jsonify(data)
     
 if __name__ == '__main__':

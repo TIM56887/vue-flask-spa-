@@ -14,9 +14,10 @@
                     <div class="fs-3 tag fw-bolder mt-1 mt-md-3">Work with APIs</div>
                     <div class="fw-bolder mt-2 main-text"><p>LOL玩家查詢系統，利用RIOT官方api製作玩家資訊查訊系統，包含常用英雄、對戰紀錄...等</p></div>
                     <div class="linkArea">
-                        <a href="" class="link">
-                            <i class="bi bi-box-arrow-up-right"></i>
-                            <div class="linkTxt">Go Try !</div>
+                        <a class="link">
+                            <!-- <i class="bi bi-box-arrow-up-right"></i> -->
+                            <i class="bi bi-cone-striped"></i>
+                            <div class="linkTxt"> 開發中...</div>
                         </a>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 <template>
     <section class="learning-resource" id="section2">
         <div class="title">
-            Resources
+            Free Web Development Resources | Coding tools
         </div>
         <div class="container-xxl">
             <div class="row justify-content-center p-0">
@@ -169,8 +169,8 @@ export default {
     .title {
         text-align: center;
         color:#1e1e1e;
-        font-size: 3rem;
-        font-weight: 900;
+        font-size: 2rem;
+        font-weight: 800;
         --tw-gradient-from: #60a5fa;
         --tw-gradient-to: #1d4ed8;
         --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
