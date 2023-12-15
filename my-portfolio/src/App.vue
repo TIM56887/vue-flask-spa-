@@ -6,7 +6,6 @@
     <LearningResource />
     <AboutMe1 />
     <SuggestTodo />
-    <!-- <HousePrice/> -->
   </div>
   
 </template>

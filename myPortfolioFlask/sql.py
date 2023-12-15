@@ -67,10 +67,13 @@ class quizDB:
             password=password,
             database='codeQuiz',
             cursorclass=pymysql.cursors.DictCursor)
-    def getQuestion(self,amount):
+    def getQuestion(self,amount,listed=False):    
         self.connection.ping(reconnect=True)
         with self.connection.cursor() as cursor:
-                sql = f"select * from questions ORDER BY RAND() LIMIT {amount};"
+                if listed:
+                    sql = f"select * from questions ORDER BY question_id LIMIT {amount};"
+                else:
+                    sql = f"select * from questions ORDER BY RAND() LIMIT {amount};"
                 cursor.execute(sql)
                 result = cursor.fetchall()
                 return result

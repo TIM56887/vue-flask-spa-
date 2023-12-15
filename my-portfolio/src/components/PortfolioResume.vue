@@ -1,6 +1,5 @@
 <template>
     <section class="profile">
-        
             <div class="container-fluid main-content" >
                 <transition name="fade">
                     <h1 class="fw-bolder title" v-if="!isScrolledFromTop">Timmy's Personal Website</h1>
@@ -38,14 +37,8 @@
                         <div class="col-10 col-md-3 mt-5 mt-md-0">
                             <img alt="profile picture" class="profilePc" src="../assets/IMG_2115.jpeg">
                         </div>
-                        
                    </div>
                 </transition>
-                <transition name="fade">
-  
- 
-                </transition>
-
             </div>
         <span class="scrollNav" v-if="!isScrolledFromTop">scroll</span>
     </section>

@@ -83,7 +83,9 @@ def predict():
 
 @app.route('/quiz')
 def getQuiz():
-    data = DB2.getQuestion(5)
+    amount = request.args.get('amount', default=None , type=int)
+    listed = request.args.get('listed', default=None , type=bool)
+    data = DB2.getQuestion(amount,listed)
     return jsonify(data)
 
 @app.route('/fivequiz', methods=['POST'])
