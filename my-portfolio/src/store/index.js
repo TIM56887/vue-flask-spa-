@@ -65,6 +65,25 @@ const actions = {
                 console.log('請求失敗',error.message)
             }
         )
+    },
+    sendComment(context,value){
+        axios.post('/sendcomment',value).then(
+            error => {
+                console.log('請求失敗',error.message)
+            }
+        )
+        context.dispatch('getComment')
+
+    },
+    getComment(context){
+        axios.get('/getcomment').then(
+            response =>{
+                context.commit('GETCOMMENT',response.data)
+            },
+            error => {
+                console.log('請求失敗',error.message)
+            }
+        )
     }
 }
 
@@ -81,6 +100,12 @@ const mutations = {
     EDITTODO(state,value){
         let obj = state.todo.find(item => item.id === value.id);
         obj.task =  value.content
+    },
+    SENDCOMMENT(state, value){
+        state.comments.push(value)
+    },
+    GETCOMMENT(state,value){
+        state.comments = value
     }
     
 }
@@ -88,6 +113,7 @@ const mutations = {
 const state = {
     todo:[],
     userstodo:[],
+    comments:[]
     
 }
 

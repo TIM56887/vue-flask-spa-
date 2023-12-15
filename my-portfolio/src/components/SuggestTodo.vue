@@ -1,34 +1,35 @@
 <template>
     <section class="comment-area">
-        <div class=" d-flex flex-column mt-5">
-            <h1>
+        <div class="mt-5 area container-sm">
+            <div class="row">
+                <h1>
                 <div class="text-center fs-3">
                     Comment . . .
                 </div>
             </h1>
-            <div class="suggestTodo h-100 d-flex flex-column  ">
+            </div>
+
+            <div class="suggestTodo h-100 row">
                 <div class="showlist mt-4 h-75">
                     <ul>
-                        <SuggestTodoItem v-for="todo in todo" :key=todo.id :todo="todo"/>
+                        <SuggestTodoItem v-for="comment in comments" :key="comment.commentId" :comment="comment" :currentUser="currentUserData.userId"/>
                     </ul>
                 </div>
-                <div class="d-flex justify-content-center input-box">
-                    
+                <div v-if="isLoggedIn" class="d-flex justify-content-center input-box">
                     <div class="input-group input-group-lg shadow-sm mx-5 bg-body-tertiary rounded" >
-                    <span class="input-group-text input-title" id="inputGroup-sizing-lg">留言．．．</span>
-                    <input
-                        type="text" 
-                        class="form-control fs-5 " 
-                        aria-label="Sizing example input" 
-                        aria-describedby="inputGroup-sizing-lg"
-                        placeholder="your input is always good . . ." 
-                        maxlength="25"
-                        @keydown.enter="addnewtodo" 
-                        v-model="inputData"
-                    >
-                    
+                        <textarea
+                            type="text" 
+                            class="form-control fs-5 " 
+                            aria-label="Sizing example input" 
+                            aria-describedby="inputGroup-sizing-lg"
+                            placeholder="your input is always good . . ." 
+                            maxlength="100"
+                            v-model="inputData"
+                        ></textarea>
+                        <button @click="addNewComment"><span class="input-group-text input-title" id="inputGroup-sizing-lg"><i class="bi bi-send fs-4"></i></span></button>
                     </div>
                 </div>
+                <button v-else type="button" class="btn btn-primary" @click="liffLogin">Line login to comment</button>
                 
             </div>
         </div>
@@ -36,6 +37,7 @@
 </template>
 
 <script>
+import liff from "@line/liff";
 import { mapState } from 'vuex'
 import SuggestTodoItem from './SuggestTodoItem.vue';
 export default {
@@ -45,15 +47,13 @@ export default {
     },
     data() {
         return {
-            
             user:'',
-            inputData:''
+            inputData:'',
+            currentUserData:{},
+            isLoggedIn:false
         };
     },
     methods:{
-        toggleLike() {
-            this.liked = !this.liked;
-        },
         addnewtodo(e){ 
             e.preventDefault();
             
@@ -71,22 +71,58 @@ export default {
         deletetodo(id){
             console.log(id)
             this.$store.dispatch('deletetodo',id)
+        },
+        liffLogin() {
+            liff.init({liffId:'2000362113-Dd5JOa2e'})
+            .then(()=> {
+                if (!liff.isLoggedIn()) {
+                    liff.login();
+                }
+            })
+            .catch((err) => {
+                this.message = "LIFF init failed.";
+                this.error = `${err}`;
+            })
+            
+        },
+        addNewComment() {
+            let commentData = {
+                ...this.currentUserData,
+                commentDate: new Date().toLocaleString("zh-TW", { timeZone: "Asia/Taipei" }),
+                commentText: this.inputData
+            };
+            this.$store.dispatch('sendComment',commentData)
+            this.inputData = ""
         }
     },
     computed:{
-        ...mapState(['todo']),
+        ...mapState(['todo','comments']),
     },
     mounted(){
+        liff.init({liffId:'2000362113-Dd5JOa2e'})
+        .then(() => {
+            if (liff.isLoggedIn()) {
+                    this.isLoggedIn = true
+                    liff.getProfile().then((pf) => {
+                        this.isLoggedIn = true
+                        this.currentUserData = pf
+                    }).catch((err) => {
+                        console.log("error",err)
+                    })
+                }
+        })
+        this.$store.dispatch('getComment')
         this.$store.dispatch('gettodo')
         if(localStorage.getItem('userId')) {
             this.$store.dispatch('getusertodo',localStorage.getItem('userId'))
             this.user = localStorage.getItem('userId')
         }
         console.log(this.$store.state.userstodo)
+        console.log(this.$store.state.comments)
     },
     watch:{
         inputData(newVal,oldVal){
-            if(newVal.includes("*") || newVal.includes(";")){
+            if(newVal.includes("*") || newVal.includes(";") || newVal.includes("'")){
                 this.inputData = oldVal
             }
         }
@@ -96,6 +132,12 @@ export default {
 </script>
 
 <style scoped>
+    button {
+        border: none;
+    }
+    .area {
+        max-width: 680px;
+    }
     .input-title{
         font-weight: 600;
         
@@ -113,14 +155,14 @@ export default {
         height: 13%;
     }
       .background {
-          width: 50%;
+          width: 60%;
           height: 800px;    
           border-radius: 1rem;
           box-shadow: inset 0 0 10px rgba(8, 8, 8,0.1); 
 
       }
     .comment-area{
-
+        
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -134,7 +176,7 @@ export default {
 
     @media (min-width: 768px) {
     
-
+    
 
 
 

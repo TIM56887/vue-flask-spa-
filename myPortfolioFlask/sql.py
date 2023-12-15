@@ -5,6 +5,32 @@ from datetime import datetime
 with open('./mysqlPassword.json') as f:
     data = json.load(f)
 password = data['password']
+class commentDB:
+    def __init__(self):
+        self.connection = pymysql.connect(
+            host='localhost',
+            user='root',
+            password=password,
+            database='LineComment',
+            cursorclass=pymysql.cursors.DictCursor)
+        
+    def add_comment(self, content):
+        self.connection.ping(reconnect=True)
+        # timestamp  = datetime.strptime(content['createtime'], "%Y-%m-%dT%H:%M:%S.%fZ")
+        # content['createtime'] = timestamp.strftime("%Y-%m-%d %H:%M:%S")
+        with self.connection.cursor() as cursor:
+            sql = f"INSERT INTO comment (userId, displayName, pictureUrl, commentDate, commentText) VALUES ('{content['userId']}', '{content['displayName']}', '{content['pictureUrl']}', '{content['commentDate']}', '{content['commentText']}');"
+            cursor.execute(sql)
+            self.connection.commit()
+            return  cursor.lastrowid
+        
+    def get_comment(self):
+        self.connection.ping(reconnect=True)
+        with self.connection.cursor() as cursor:
+            sql = "SELECT * from comment"
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            return result
 
 
 class TodoDB:

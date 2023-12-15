@@ -1,9 +1,44 @@
 <template>
-    <li class="todoli d-flex flex-row justify-content-center">
-        <div class="content shadow p-1 mb-3 bg-body-tertiary rounded">
-            <div class="tododate">{{ todo.date }}</div>
+    <li class="container-fluid pb-1 px-0 border-bottom mt-4">
+        <div class="row">
+            <div class="col-1 overflow-hidden ps-4 d-flex justify-content-end p-0">
+                <img :src="comment.pictureUrl" alt="pf" class="object-fit-fill border rounded-circle">
+            </div>
+            <div class="col-11">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-2 p-0">
+                            <div class="user fw-semibold">
+                                {{ comment.displayName }}
+                            </div>
+                        </div>
+                        <div class="col-3 p-0 text-secondary time text-end">
+                            {{ comment.commentDate.slice(0,16).replace("T"," ") }}
+                            
+                        </div>
+                    </div>
+                    <div class="row textArea">
+                        <pre class="comment ps-1">
+                                {{ comment.commentText }}
+                        </pre>
+                    </div>
+                    <div class="row justify-content-end bottom-row ">
+                        <div v-if="currentUser === comment.userId" class="col-1 text-end p-0">                            
+                            <i class="bi bi-pencil-square editicon align-middle p-1"></i>
+                        </div>
+                        <div v-if="currentUser === comment.userId" class="col-1 p-0 ms-2">
+                            <i class="bi bi-trash3 deleteicon align-middle p-1"></i>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
             
-            <div v-show="!isEditing" class="todocontent">{{ todo.task }}</div>
+
+            <div>
+                
+            </div>
+            <!-- <div v-show="!isEditing" class="todocontent">{{ todo.task }}</div>
             <input ref="editingInput" 
                     v-show="isEditing" 
                     v-model="editingvalue" 
@@ -15,7 +50,7 @@
             </div>
             <div v-if="$store.state.userstodo.includes(todo.id)" class="deleteButton" @click="deletetodo(todo.id)">   
                 <i class="bi bi-trash3 deleteicon"></i>
-            </div>
+            </div> -->
             
            
         </div>
@@ -25,7 +60,7 @@
 <script>
 export default {
     name:'SuggestTodoItem',
-    props:['todo'],
+    props:['comment','currentUser'],
     data(){
         return{
             isEditing:false,
@@ -59,78 +94,33 @@ export default {
 </script>
 
 <style scoped>
-    .deleteicon{
-        font-size: 1.5rem;
-        transition: all 0.1s;
-        
+    img {
+        height: 50px;
     }
-    .deleteButton:hover .deleteicon{
-        color: rgb(192, 18, 18);
-        font-size: 1.8rem;
-    }
-    .editicon {
-        font-size: 1.5rem;
-        transition: all 0.1s;
-    }
-
-    .editButton:hover .editicon{
-        color: green;
-        font-size:1.8rem;
-    }
-    .editButton{
-        width:11%;
-        background: transparent;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-right: 0;
-        height: 80%;
-    }
-
-    .editButton:hover{
-        background: rgba(0, 0, 0, 0.1);
-        border-radius: 0.9rem;
-    }
-
-    .content{
-        align-items: center;
-        display:flex;
-        width: 90%;
-        height: 60px;
-        background-color: #ebedf0;
-        border-radius: 1rem;
-    }
-
-    .tododate{
-        width:29%;
-        font-size: 1.5rem;
-        font-weight: 700;
-        text-align: center;
-    }
-    .todocontent{
-        width:50%;
-        overflow-x:auto;
-        
-    }
-    .deleteButton{
-        width:11%;
-        background: transparent;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-right: 5px;
-        height: 80%;
-    }
-    .deleteButton:hover{
-        background: rgba(0, 0, 0, 0.1);
-        border-radius: 0.9rem;
-    }
-
-    .todoli{
+    li {
+        min-height: 130px;
         list-style-type: none;
-        margin-bottom: 1rem;
     }
-
-
+    .time {
+        font-size: 14px;
+    }
+    .textArea {
+        min-height: 90px;
+    }
+    .deleteicon:hover{
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 0.9rem;
+        font-size: 20px;
+        color: rgb(239 68 68);
+    }
+    .editicon:hover{
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 0.9rem;
+        font-size: 20px;
+        color: rgb(5 150 105);
+    }
+    .bottom-row {
+        height: 30px;
+    }
     
 </style>

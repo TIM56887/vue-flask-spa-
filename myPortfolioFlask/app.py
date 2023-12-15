@@ -3,11 +3,13 @@ import pymysql.cursors
 from nanoid import generate
 from sql import TodoDB
 from sql import quizDB
+from sql import commentDB
 from household import caculate 
     
 
 DB = TodoDB()
 DB2 = quizDB()
+DB_comment = commentDB()
 
 app = Flask(__name__,
             static_folder='./dist',
@@ -94,6 +96,21 @@ def fivequiz():
     previousQID = data['currentQuestionIds']
     data = DB2.getNewQuestion(previousQID)
     return jsonify(data)
+
+@app.route('/sendcomment', methods=['POST'])
+def sendcomment():
+    data = request.json
+    print("send",data)
+    DB_comment.add_comment(data)
+    return 200
+
+@app.route('/getcomment', methods=['GET'])
+def getcomment():
+    data = DB_comment.get_comment()
+    print(data)
+    return jsonify(data)
+    
+
     
 if __name__ == '__main__':
     app.run(debug=True)
