@@ -1,5 +1,5 @@
 <template>
-    <section class="aboutMe" id="section3">
+    <section class="aboutMe py-5" id="section3">
         <h1><div class="fs-2 fs-md-1 fw-bold text-center mt-5">About Me</div></h1>
         <div class="container-fluid">
             <div class="row justify-content-center mt-3 mt-md-5">

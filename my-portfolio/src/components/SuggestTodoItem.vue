@@ -1,10 +1,10 @@
 <template>
-    <li class="container-fluid pb-1 px-0 border-bottom mt-4">
+    <li class="container-fluid pb-1 px-0 px-md-4 border-bottom mt-4">
         <div class="row">
-            <div class="col-1 overflow-hidden ps-4 d-flex justify-content-end p-0">
+            <div class="col-md-1 col-2 overflow-hidden  d-flex justify-content-end p-md-0">
                 <img :src="comment.pictureUrl" alt="pf" class="object-fit-fill border rounded-circle">
             </div>
-            <div class="col-11">
+            <div class="col-md-11 col-10">
                 <div class="container">
                     <div class="row justify-content-between">
                         <div class="col-2 p-0">
@@ -13,46 +13,30 @@
                             </div>
                         </div>
                         <div class="col-3 p-0 text-secondary time text-end">
-                            {{ comment.commentDate.slice(0,16).replace("T"," ") }}
-                            
+                            {{ comment.commentDate.slice(0,17).replace("T"," ") }}
                         </div>
                     </div>
-                    <div class="row textArea">
-                        <pre class="comment ps-1">
-                                {{ comment.commentText }}
-                        </pre>
+                    <div v-show="!isEditing" class="row textArea">
+                        <pre class="p-0 px-md-1">{{ comment.commentText }}</pre>
+                    </div>
+                    <div v-show="isEditing" class="row textArea">
+                        <textarea 
+                            ref="editingInput" 
+                            cols="30" rows="5" 
+                            v-model="editingvalue"
+                            @blur="doneEdit"
+                            ></textarea>
                     </div>
                     <div class="row justify-content-end bottom-row ">
-                        <div v-if="currentUser === comment.userId" class="col-1 text-end p-0">                            
+                        <div  v-if="!isEditing && currentUser === comment.userId" @click="editComment" class="col-1 text-end p-0">                            
                             <i class="bi bi-pencil-square editicon align-middle p-1"></i>
                         </div>
-                        <div v-if="currentUser === comment.userId" class="col-1 p-0 ms-2">
+                        <div v-if="!isEditing && currentUser === comment.userId" @click="deleteComment" class="col-1 p-0 ms-2">
                             <i class="bi bi-trash3 deleteicon align-middle p-1"></i>
                         </div>
-                        
                     </div>
                 </div>
             </div>
-            
-
-            <div>
-                
-            </div>
-            <!-- <div v-show="!isEditing" class="todocontent">{{ todo.task }}</div>
-            <input ref="editingInput" 
-                    v-show="isEditing" 
-                    v-model="editingvalue" 
-                    @blur="sendeditedtodo($event,todo)" 
-                    class="todocontent" >
-            <div v-if="$store.state.userstodo.includes(todo.id)" class="editButton" @click="edittodo(todo)">
-
-                <i class="bi bi-pencil-square editicon"></i>
-            </div>
-            <div v-if="$store.state.userstodo.includes(todo.id)" class="deleteButton" @click="deletetodo(todo.id)">   
-                <i class="bi bi-trash3 deleteicon"></i>
-            </div> -->
-            
-           
         </div>
     </li>
 </template>
@@ -68,25 +52,30 @@ export default {
         }
     },
     methods:{
-        deletetodo(id){
-            
-            this.$store.dispatch('deletetodo',id)
-        },
-        edittodo(todo){
-            this.isEditing = !this.isEditing
-            this.editingvalue = todo.task
+        editComment() {
+            this.isEditing = !this.isEditing;
+            this.editingvalue = this.comment.commentText;
             this.$nextTick(() => {
                 this.$refs.editingInput.focus();
             });
         },
-        sendeditedtodo(e,todo){
-            if (todo.task !== e.target.value){
-                let content = e.target.value
-                let id = todo.id
-                this.isEditing=false
-                this.$store.dispatch('edittodo',{content,id})
+        doneEdit(){
+            this.isEditing = false;
+            if (this.comment.commentText !== this.editingvalue){
+                this.sendEditedComment()
             }
-            this.isEditing=false
+            
+        },
+        sendEditedComment(){
+            const updateComment = {
+                commentId: this.comment.commentId,
+                newValue: this.editingvalue
+            }
+            this.$store.dispatch('updateComment',updateComment)            
+        },
+        deleteComment(){
+            const id = {commentId:this.comment.commentId}
+            this.$store.dispatch('deleteComment',id)
         }
     }
 

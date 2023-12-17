@@ -1,15 +1,10 @@
 <template>
-    <section class="comment-area">
-        <div class="mt-5 area container-sm">
-            <div class="row">
-                <h1>
-                <div class="text-center fs-3">
-                    Comment . . .
-                </div>
-            </h1>
+    <section class="comment-area">       
+        <div class="mt-5  area container-sm ">
+            <div class="row p-0">
+                <h1><div class="text-center fs-3">Comment . . .</div></h1>
             </div>
-
-            <div class="suggestTodo h-100 row">
+            <div class="suggestTodo h-100 row ">
                 <div class="showlist mt-4 h-75">
                     <ul>
                         <SuggestTodoItem v-for="comment in comments" :key="comment.commentId" :comment="comment" :currentUser="currentUserData.userId"/>
@@ -29,10 +24,14 @@
                         <button @click="addNewComment"><span class="input-group-text input-title" id="inputGroup-sizing-lg"><i class="bi bi-send fs-4"></i></span></button>
                     </div>
                 </div>
-                <button v-else type="button" class="btn btn-primary" @click="liffLogin">Line login to comment</button>
-                
             </div>
+            <button type="button" class="btn btn-success sticky-bottom" @click="liffLogin">
+                <i class="bi bi-line mx-3 fs-3"></i>
+                <span class="me-2 fs-5 lh-lg fw-semibold">Login to comment</span>
+            </button>
         </div>
+        
+        
     </section>
 </template>
 
@@ -54,24 +53,6 @@ export default {
         };
     },
     methods:{
-        addnewtodo(e){ 
-            e.preventDefault();
-            
-            if (this.inputData){
-                const data = {
-                    createtime:new Date(),
-                    content:e.target.value,
-                    userid:this.user
-                }
-                this.inputData = "" 
-                this.$store.dispatch('SendTodo',data)
-            }
-            
-        },
-        deletetodo(id){
-            console.log(id)
-            this.$store.dispatch('deletetodo',id)
-        },
         liffLogin() {
             liff.init({liffId:'2000362113-Dd5JOa2e'})
             .then(()=> {
@@ -82,8 +63,7 @@ export default {
             .catch((err) => {
                 this.message = "LIFF init failed.";
                 this.error = `${err}`;
-            })
-            
+            });
         },
         addNewComment() {
             let commentData = {
@@ -91,39 +71,34 @@ export default {
                 commentDate: new Date().toLocaleString("zh-TW", { timeZone: "Asia/Taipei" }),
                 commentText: this.inputData
             };
-            this.$store.dispatch('sendComment',commentData)
-            this.inputData = ""
+            this.$store.dispatch('sendComment',commentData);
+            this.inputData = "";
         }
     },
     computed:{
-        ...mapState(['todo','comments']),
+        ...mapState(['comments']),
     },
     mounted(){
         liff.init({liffId:'2000362113-Dd5JOa2e'})
         .then(() => {
             if (liff.isLoggedIn()) {
                     this.isLoggedIn = true
-                    liff.getProfile().then((pf) => {
+                    liff.getProfile()
+                    .then((pf) => {
                         this.isLoggedIn = true
                         this.currentUserData = pf
-                    }).catch((err) => {
+                    })
+                    .catch((err) => {
                         console.log("error",err)
                     })
                 }
-        })
-        this.$store.dispatch('getComment')
-        this.$store.dispatch('gettodo')
-        if(localStorage.getItem('userId')) {
-            this.$store.dispatch('getusertodo',localStorage.getItem('userId'))
-            this.user = localStorage.getItem('userId')
-        }
-        console.log(this.$store.state.userstodo)
-        console.log(this.$store.state.comments)
+        });
+        this.$store.dispatch('getComment');
     },
     watch:{
         inputData(newVal,oldVal){
             if(newVal.includes("*") || newVal.includes(";") || newVal.includes("'")){
-                this.inputData = oldVal
+                this.inputData = oldVal;
             }
         }
     }
@@ -132,6 +107,7 @@ export default {
 </script>
 
 <style scoped>
+    
     button {
         border: none;
     }
@@ -162,7 +138,6 @@ export default {
 
       }
     .comment-area{
-        
         min-height: 100vh;
         display: flex;
         align-items: center;

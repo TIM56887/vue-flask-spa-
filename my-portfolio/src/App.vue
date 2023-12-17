@@ -4,8 +4,8 @@
     <PortfolioResume />
     <PortfolioList />
     <LearningResource />
-    <AboutMe1 />
     <SuggestTodo />
+    <AboutMe1 />
   </div>
   
 </template>
