@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            <button v-if="isLoggedIn" type="button" class="btn btn-success sticky-bottom" @click="liffLogin">
+            <button v-if="!isLoggedIn" type="button" class="btn btn-success sticky-bottom" @click="liffLogin">
                 <i class="bi bi-line mx-3 fs-3"></i>
                 <span class="me-2 fs-5 lh-lg fw-semibold">Login to comment</span>
             </button>

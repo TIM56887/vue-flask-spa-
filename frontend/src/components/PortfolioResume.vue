@@ -9,9 +9,7 @@
                         <div class="col-11 col-md-5">
                             <p class="fs-3 fw-medium">Hi, I'm Tim 
                                 currently focusing on 
-                                data analysis,
-                                data processing, 
-                                and front-end development.
+                                front-end development.
                                 Here's some of my project...
                             </p>
                             <div class="techStack" v-if="isScrolledFromTop" >

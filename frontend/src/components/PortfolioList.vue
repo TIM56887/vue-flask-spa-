@@ -3,9 +3,8 @@
         <div class="vertical-dashed-line"></div>
         <div class="dashed-line-with-circle"></div>
         <div class="dashed-line-with-circle-end"></div>
-        <div><h1 class="text-center"></h1></div>
         <div class="container-fluid">            
-            <div class="row main-contnet justify-content-center">                                
+            <div class="row main-contnet justify-content-center position-relative">                                
                 <div class=" col-10 col-md-5 col-xxl-4 preview">                    
                     <div class="">
                         <img class="icon" src="../assets/rioticon.png" alt="lolPic">
@@ -48,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center main-content3 mt-4">
+            <div class="row justify-content-center main-content3">
                 <div class=" col-10 col-md-5 col-xxl-4 preview3">                    
                     <div class="">
                         <img class="icon" src="../assets/ntp.png" alt="lolPic">
@@ -75,6 +74,27 @@
                     </div>
                 </div>
             </div>
+            <div class="row flex-md-row-reverse flex-column-reverse main-contnet2 justify-content-center align-items-center">                                
+                <div class=" col-10 col-md-5 col-xxl-4 preview4">                    
+                    <div class="">
+                        <img class="icon" src="../assets/JavaScript.png" alt="lolPic">
+                    </div>
+                    <div class="title fs-1 fw-bolder mt-1 mt-md-3">JavaScript Quiz</div>
+                    <div class="fs-3 tag fw-bolder mt-1 mt-md-3">Work with data</div>
+                    <div class="fw-bolder mt-2 main-text"><p>有關JavaScript的選擇題測驗</p></div>
+                    <div class="linkArea">
+                        <a class="link" href="/jsquiz">
+                            <i class="bi bi-box-arrow-up-right"></i>
+                            <div class="linkTxt"> GO Try</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-10 col-md-5 col-xxl-4 imgArea2">
+                    <div class="image">
+                        <img src="../assets/jsquizapp.png" alt="lol" class="lol-wallpaper">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </template>
@@ -82,6 +102,7 @@
 </script>
 
 <style scoped>
+
 @media (min-width: 768px) {
     .portfolio {
        position: relative;
@@ -91,6 +112,20 @@
         padding-top: 200px;
         min-height: 70vh;
     }
+    .main-contnet::after{
+        content: ''; /* 伪元素内容为空 */
+        position: absolute; /* 绝对定位 */
+        left: 50%; /* 根据需要调整位置 */
+        top: 100%; /* 圆圈的垂直位置 */
+        transform: translate(-50%, -50%);
+        width: 10px; /* 圆圈的宽度 */
+        height: 10px; /* 圆圈的高度 */
+        background-color: white; /* 圆圈的颜色 */
+        border-radius: 50%; /* 圆形 */
+        border: 1px solid rgba(30,30,30,.3);
+        z-index: 100;
+    }
+    
     .vertical-dashed-line:after {
         content: '';
         position: absolute;
@@ -104,7 +139,7 @@
         content: ''; /* 伪元素内容为空 */
         position: absolute; /* 绝对定位 */
         left: 49.7%; /* 根据需要调整位置 */
-        top: 63%; /* 圆圈的垂直位置 */
+        top: 78%; /* 圆圈的垂直位置 */
         width: 10px; /* 圆圈的宽度 */
         height: 10px; /* 圆圈的高度 */
         background-color: white; /* 圆圈的颜色 */
@@ -127,7 +162,7 @@
         content: ''; /* 伪元素内容为空 */
         position: absolute; /* 绝对定位 */
         left: 49.75%; /* 根据需要调整位置 */
-        top: 33%; /* 圆圈的垂直位置 */
+        top: 55%; /* 圆圈的垂直位置 */
         width: 10px; /* 圆圈的宽度 */
         height: 10px; /* 圆圈的高度 */
         background-color: white; /* 圆圈的颜色 */
@@ -184,7 +219,18 @@
         position: relative;
         padding-left: 100px;
         padding-right: 50px;
-        margin-bottom: 150px;
+        margin-top: 200px;
+    }
+    .preview4 {
+        --tw-gradient-from: #b56f07;
+        --tw-gradient-to: #b54707;
+        --tw-gradient-stops: white 2%,var(--tw-gradient-from) 15%, var(--tw-gradient-to);
+        background-image: linear-gradient(to right bottom, var(--tw-gradient-stops));
+        -webkit-background-clip: text;
+        background-clip: text;
+        padding-left: 70px;
+        margin-top: 100px;
+        margin-bottom: 14%;
     }
     .tag {
         color: transparent;
@@ -226,7 +272,7 @@
     }
     .imgArea3 {
         padding: 0;
-        margin-top: 130px   ;
+        margin-top: 320px   ;
     }
     .imgArea2 {
         padding-left: 100px;
@@ -274,12 +320,27 @@
 
     .main-contnet {
         align-items: center;
-        flex-direction: column-reverse;
-        
+        flex-direction: column-reverse;   
+    }
+    .main-contnet2 {
+        margin-top: 150px;
     }
     .main-content3 {
         align-items: center;
         flex-direction: column-reverse;
+    }
+    .main-contnet::after{
+        content: ''; /* 伪元素内容为空 */
+        position: absolute; /* 绝对定位 */
+        left: 5%; /* 根据需要调整位置 */
+        top: 110%; /* 圆圈的垂直位置 */
+        transform: translate(-50%, -50%);
+        width: 10px; /* 圆圈的宽度 */
+        height: 10px; /* 圆圈的高度 */
+        background-color: white; /* 圆圈的颜色 */
+        border-radius: 50%; /* 圆形 */
+        border: 1px solid rgba(30,30,30,.3);
+        z-index: 100;
     }
     .vertical-dashed-line:after {
         content: '';
@@ -306,7 +367,7 @@
         content: ''; /* 伪元素内容为空 */
         position: absolute; /* 绝对定位 */
         left: 4%; /* 根据需要调整位置 */
-        top: 71%; /* 圆圈的垂直位置 */
+        top: 73%; /* 圆圈的垂直位置 */
         width: 10px; /* 圆圈的宽度 */
         height: 10px; /* 圆圈的高度 */
         background-color: white; /* 圆圈的颜色 */
@@ -318,7 +379,7 @@
         content: ''; /* 伪元素内容为空 */
         position: absolute; /* 绝对定位 */
         left: 4%; /* 根据需要调整位置 */
-        top: 33%; /* 圆圈的垂直位置 */
+        top: 51%; /* 圆圈的垂直位置 */
         width: 10px; /* 圆圈的宽度 */
         height: 10px; /* 圆圈的高度 */
         background-color: white; /* 圆圈的颜色 */
@@ -373,6 +434,16 @@
         background-clip: text;
         position: relative;
         margin-bottom: 50px;
+    }
+    .preview4 {
+        --tw-gradient-from: #b56f07;
+        --tw-gradient-to: #b54707;
+        --tw-gradient-stops: white 2%,var(--tw-gradient-from) 15%, var(--tw-gradient-to);
+        background-image: linear-gradient(to right bottom, var(--tw-gradient-stops));
+        -webkit-background-clip: text;
+        background-clip: text;
+        margin-top: 15px;
+        margin-bottom: 25%;
     }
     .tag {
         color: transparent;
@@ -455,9 +526,7 @@
         color: #777;
         line-height: 1.8;
     }
-    .main-contnet2 {
-        margin-top: 150px;
-    }
+
 }
 
 
