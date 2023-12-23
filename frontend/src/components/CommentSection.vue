@@ -66,13 +66,15 @@ export default {
             });
         },
         addNewComment() {
-            let commentData = {
-                ...this.currentUserData,
-                commentDate: new Date().toLocaleString("zh-TW", { timeZone: "Asia/Taipei" }),
-                commentText: this.inputData
-            };
-            this.$store.dispatch('sendComment',commentData);
-            this.inputData = "";
+            if (this.inputData) {
+                let commentData = {
+                    ...this.currentUserData,
+                    commentDate: new Date().toLocaleString("zh-TW", { timeZone: "Asia/Taipei" }),
+                    commentText: this.inputData
+                };
+                this.$store.dispatch('sendComment',commentData);
+                this.inputData = "";
+            }
         }
     },
     computed:{
