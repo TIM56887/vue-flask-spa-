@@ -61,8 +61,6 @@ const mutations = {
 }
 
 const state = {
-    todo:[],
-    userstodo:[],
     comments:[]
 }
 

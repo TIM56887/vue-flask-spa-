@@ -18,7 +18,8 @@
                             aria-label="Sizing example input" 
                             aria-describedby="inputGroup-sizing-lg"
                             placeholder="your input is always good . . ." 
-                            maxlength="100"
+                            maxlength="800"
+                            :rows="Math.min(Math.max(Math.max(inputData.split('\n').length, 2), 2), 9)"
                             v-model="inputData"
                         ></textarea>
                         <button @click="addNewComment"><span class="input-group-text input-title" id="inputGroup-sizing-lg"><i class="bi bi-send fs-4"></i></span></button>

@@ -13,7 +13,7 @@
                             </div>
                         </div>
                         <div class="col-3 p-0 text-secondary time text-end">
-                            {{ comment.commentDate.slice(0,17).replace("T"," ") }}
+                            {{ comment.commentDate.slice(0, -3) }}
                         </div>
                     </div>
                     <div v-show="!isEditing" class="row textArea">
@@ -22,7 +22,8 @@
                     <div v-show="isEditing" class="row textArea">
                         <textarea 
                             ref="editingInput" 
-                            cols="30" rows="5" 
+                            cols="30" 
+                            :rows="Math.min(Math.max(editingvalue.split('\n').length + 1, 1),15)" 
                             v-model="editingvalue"
                             @blur="doneEdit"
                             ></textarea>
@@ -83,6 +84,9 @@ export default {
 </script>
 
 <style scoped>
+    textarea {
+        font-family: monospace;
+    }
     img {
         height: 50px;
     }
