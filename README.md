@@ -1,2 +1,2 @@
-# Vue python 串接 liff 製作個人網站及留言板
+# Vue + python Flask 製作個人網站及留言板
 
