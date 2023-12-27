@@ -1,19 +1,20 @@
+import HousePricePredict from "../pages/HousePricePredict.vue";
+import HomeMain from "../pages/HomeMain.vue"
 import VueRouter from "vue-router";
-// import AboutLife from '../pages/AboutLife.vue'
 
 
 export default new VueRouter({
     mode:'history',
     routes:[
-        // {
-        //     path:'/aboutlearn',
-        //     component:AboutLife,
-        // },
-        // {
-        //     path:'/aboutwork',
-        //     component:AboutLife,
+        {
+            path:'/housepricepredict',
+            component:HousePricePredict,
+        },
+        {
+            path:'/',
+            component:HomeMain,
             
-        // },
+        },
         // {
         //     path:'/aboutlife',
         //     component:AboutLife

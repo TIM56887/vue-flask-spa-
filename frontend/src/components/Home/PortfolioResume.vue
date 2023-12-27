@@ -5,8 +5,8 @@
                     <h1 class="fw-bolder title" v-if="!isScrolledFromTop">Timmy's Personal Website</h1>
                 </transition>
                 <transition name="fade">
-                    <div class="row justify-content-center preview" v-if="isScrolledFromTop">
-                        <div class="col-11 col-md-5">
+                    <div class="row justify-content-end preview" v-if="isScrolledFromTop">
+                        <div class="col-11 col-md-4">
                             <p class="fs-3 fw-medium">Hi, I'm Tim 
                                 currently focusing on 
                                 front-end development.
@@ -18,22 +18,22 @@
                                 </h4>
                                 <ul class="techPICLine">
                                     <li class="techPIC">
-                                        <img class="html" src="../assets/html.png" alt="html">
+                                        <img class="html" src="../../assets/html.png" alt="html">
                                     </li>
                                     <li class="techPIC">
-                                        <img class="css" src="../assets/css.png" alt="html">
+                                        <img class="css" src="../../assets/css.png" alt="html">
                                     </li>
                                     <li class="techPIC">
-                                        <img class="js" src="../assets/JavaScript.png" alt="html">
+                                        <img class="js" src="../../assets/JavaScript.png" alt="html">
                                     </li>
                                     <li class="techPIC">
-                                        <img class="python" src="../assets/python.png" alt="html">
+                                        <img class="python" src="../../assets/python.png" alt="html">
                                     </li>
                                 </ul>
                             </div>    
                         </div>
-                        <div class="col-10 col-md-3 mt-5 mt-md-0">
-                            <img alt="profile picture" class="profilePc" src="../assets/IMG_2115.jpeg">
+                        <div class="col-10 col-md-4 mt-5 mt-md-0">
+                            <img alt="profile picture" class="profilePc" src="../../assets/IMG_2115.jpeg">
                         </div>
                    </div>
                 </transition>
@@ -149,7 +149,7 @@ export default {
     }
     .preview {
         padding-top: 350px;
-        padding-left: 200px;
+        /* padding-left: 200px; */
         position: relative;
     }
     .techPIC{
@@ -199,7 +199,6 @@ export default {
     }
     
     .profilePc{
-        margin-left: 150px;
         width:auto;
         height: 15rem;
         border-radius: 50%;
