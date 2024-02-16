@@ -2,7 +2,7 @@
     <section class="profile">
             <div class="container-fluid main-content" >
                 <transition name="fade">
-                    <h1 class="fw-bolder title" v-if="!isScrolledFromTop">Timmy's Personal Website</h1>
+                    <h1 class="fw-bolder title" v-if="!isScrolledFromTop">Personal Website</h1>
                 </transition>
                 <transition name="fade">
                     <div class="row justify-content-end preview" v-if="isScrolledFromTop">

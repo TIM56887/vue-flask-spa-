@@ -10,6 +10,7 @@
                     <li class="px-5 rounded" @click="scrollTo('section1')">Project</li>
                     <li class="px-5 rounded" @click="scrollTo('section2')">Resources</li>
                     <li class="px-5 rounded" @click="scrollTo('section3')">About me</li>
+                    <li class="currentLine" :style="{left: leftpx + 'px'}" ></li>
                 </ul>
             </div>
             <div class="col-3 hamburger">
@@ -31,7 +32,9 @@
     export default {
         data(){
             return{
-                isVisible:false
+                isVisible:false,
+                scrollPosition: 0,
+                leftpx:365
             }
         },
         methods: {
@@ -49,14 +52,57 @@
             },
              showMenu(){
                 this.isVisible = !this.isVisible;
+            },
+            updateScroll(){
+                this.scrollPosition = window.scrollY;
             }
-}
+        },
+        mounted() {
+                window.addEventListener("scroll",this.updateScroll)
+            },
+        beforeDestroy(){
+            window.removeEventListener("scroll",this.updateScroll)
+        },
+        computed:{
+            section1Position(){
+                return document.getElementById("section1").offsetTop
+            },
+            section2Position(){
+                return document.getElementById("section2").offsetTop
+            },
+            section3Position(){
+                return document.getElementById("section3").offsetTop
+            },
+        },
+        watch:{
+            scrollPosition(newVal){
+                console.log(newVal,this.section2Position,this.section3Position)
+                if(newVal > this.section2Position) {
+                    this.leftpx = 700;
+                }
+                if(newVal < this.section2Position) {
+                    this.leftpx = 365;
+                }
+                
+            }
+        }
+
 
     }
 </script>
 
 <style scoped>
-
+.currentLine{
+    position: absolute;
+    bottom: 10px;
+    height: 4px;
+    width: 64px;
+    background-color: #1e1e1e;
+    padding: 0;
+}
+.active {
+  border-bottom: 2px solid #000; 
+}
 .hamburger {
     visibility: hidden;
 }
