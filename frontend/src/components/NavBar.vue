@@ -78,7 +78,7 @@
             scrollPosition(newVal){
                 console.log(newVal,this.section2Position,this.section3Position)
                 if(newVal > this.section2Position) {
-                    this.leftpx = 700;
+                    this.leftpx = 800;
                 }
                 if(newVal < this.section2Position) {
                     this.leftpx = 365;
