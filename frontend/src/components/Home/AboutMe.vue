@@ -10,7 +10,7 @@
                 </div>
                 <div class="Picborder col-10 col-md-2 ms-md-3 mt-3 mt-md-0">
                     <div class="picBox">
-                        <img class="linePIC" src="../assets/lineimg.jpeg" alt="lineQRcode">
+                        <img class="linePIC" src="../../assets/lineimg.jpeg" alt="lineQRcode">
                         <div class="middle">
                             <div class="text">ID:timmy56887</div>
                         </div>

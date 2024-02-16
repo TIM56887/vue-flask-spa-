@@ -49,80 +49,80 @@ export default {
                     title:'Mysql',
                     review:'youtube上的免費課程，初學者也能看懂，個人覺得非常實用!',
                     url:'https://www.youtube.com/playlist?list=PLmOn9nNkQxJFi4x7rZ5wpUKts3u7cDx21',
-                    img:require('../assets/mysql.png')
+                    img:require('../../assets/mysql.png')
                 },
                 {
                     title:'vue',
                     review:'本套视频教程对Vue3和Vue2的各项核心技术及周边技术进行了详细的讲解',
                     url:'https://www.youtube.com/playlist?list=PLmOn9nNkQxJEARHuEpVayY6ppiNlkvrnb',
-                    img:require('../assets/logo.png')
+                    img:require('../../assets/logo.png')
                 },
                 {
                     title:'html&css',
                     review:'youtube上的免費課程，初學者也能看懂，個人覺得非常實用!',
                     url:'https://www.youtube.com/playlist?list=PLmOn9nNkQxJGGuwYhQzTmRGFwF9cHYS-x',
-                    img:require('../assets/html.png')
+                    img:require('../../assets/html.png')
 
                 },
                 {
                     title:'freecodecamp',
                     review:'一個能在網頁上練習撰寫程式的網站',
                     url:'https://www.freecodecamp.org/',
-                    img:require('../assets/freecodecamp.jpg')
+                    img:require('../../assets/freecodecamp.jpg')
                 },
                 {
                     title:'Python',
                     review:'完整Python教程',
                     url:'https://www.youtube.com/playlist?list=PLmOn9nNkQxJFGvtKd7PI7AhsYmY-6FrJs',
-                    img:require('../assets/python.png')
+                    img:require('../../assets/python.png')
                 },
                 {
                     title:'roadmap.sh',
                     review:'軟體開發者的技能樹地圖，提供很多成為特定軟體領域開發者的學習指引',
                     url:'https://roadmap.sh/',
-                    img:require('../assets/roadmapPic.png')
+                    img:require('../../assets/roadmapPic.png')
                 },                
                 {
                     title:'100 Days CSS ',
                     review:'100天css挑戰',
                     url:'https://100dayscss.com/',
-                    img:require('../assets/css.png')
+                    img:require('../../assets/css.png')
                 },
                 {
                     title:'CSS Grid',
                     review:'CSS Grid 小遊戲',
                     url:'https://cssgridgarden.com/',
-                    img:require('../assets/cssgrid.png')
+                    img:require('../../assets/cssgrid.png')
                 },
                 {
                     title:'css-tricks.com',
                     review:'Free website to upskill your css',
                     url:'https://cssgridgarden.com/',
-                    img:require('../assets/css-trick.png')
+                    img:require('../../assets/css-trick.png')
                 },
                 {
                     title:'Python and AI',
                     review:'Free videos on Python and AI, including tutorials on TensorFlow, NumPy, and Pandas.',
                     url:'https://www.youtube.com/@MorvanZhou/playlists',
-                    img:require('../assets/mofan.png')
+                    img:require('../../assets/mofan.png')
                 },
                 {
                     title:' NLP spaCy',
                     review:'spaCy tutorial,natural language processing.',
                     url:'https://www.youtube.com/watch?v=dIUTsFT2MeQ',
-                    img:require('../assets/spacy.png')
+                    img:require('../../assets/spacy.png')
                 },
                 {
                     title:' SQL ZOO',
                     review:'Learn SQL step by step',
                     url:'https://sqlzoo.net/wiki/SQL_Tutorial',
-                    img:require('../assets/sqlzoo.png')
+                    img:require('../../assets/sqlzoo.png')
                 },
                 {
                     title:' C#',
                     review:'C# cheat sheet',
                     url:'https://www.thecodingguys.net/resources/cs-cheat-sheet.pdf',
-                    img:require('../assets/cs.png')
+                    img:require('../../assets/cs.png')
                 },
 
                 

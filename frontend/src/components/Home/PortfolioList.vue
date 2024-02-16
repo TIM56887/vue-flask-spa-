@@ -7,7 +7,7 @@
             <div class="row main-contnet justify-content-center position-relative">                                
                 <div class=" col-10 col-md-5 col-xxl-4 preview">                    
                     <div class="">
-                        <img class="icon" src="../assets/rioticon.png" alt="lolPic">
+                        <img class="icon" src="../../assets/rioticon.png" alt="lolPic">
                     </div>
                     <div class="title fs-1 fw-bolder mt-1 mt-md-3">LOL player search</div>
                     <div class="fs-3 tag fw-bolder mt-1 mt-md-3">Work with APIs</div>
@@ -22,19 +22,19 @@
                 </div>
                 <div class="col-10 col-md-5 col-xxl-4 imgArea">
                     <div class="image">
-                        <img src="../assets/lolwallpaper1.png" alt="lol" class="lol-wallpaper">
+                        <img src="../../assets/lolwallpaper1.png" alt="lol" class="lol-wallpaper">
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center main-contnet2">
+            <div class="row justify-content-center main-contnet2 align-items-center">
                 <div class="col-10 col-md-5 col-xxl-4 imgArea2">
                     <div class="image">
-                        <img src="../assets/map.png" alt="lol" class="mapImg">
+                        <img src="../../assets/map.png" alt="lol" class="mapImg">
                     </div>
                 </div>
                 <div class="col-10 col-md-5 col-xxl-4 preview2">
                     <div class="">
-                        <img class="icon-leaf" src="../assets/leaficon.png" alt="lolPic">
+                        <img class="icon-leaf" src="../../assets/leaficon.png" alt="lolPic">
                     </div>
                     <div class="title fs-1 fw-bolder mt-1 mt-md-3">LIFF Map</div>
                     <div class="fs-3 tag fw-bolder mt-1 mt-md-3">Work with Map</div>
@@ -50,7 +50,7 @@
             <div class="row justify-content-center main-content3">
                 <div class=" col-10 col-md-5 col-xxl-4 preview3">                    
                     <div class="">
-                        <img class="icon" src="../assets/ntp.png" alt="lolPic">
+                        <img class="icon" src="../../assets/ntp.png" alt="lolPic">
                     </div>
                     <div class="title fs-1 fw-bolder mt-1 mt-md-3">新北市房價預測系統</div>
                     <div class="fs-3 tag fw-bolder mt-1 mt-md-3">data processing</div>
@@ -70,14 +70,14 @@
                 </div>
                 <div class="col-10 col-md-5 col-xxl-4 imgArea3">
                     <div class="image">
-                        <img src="../assets/houseprice.png" alt="lol" class="housePricePC">
+                        <img src="../../assets/houseprice.png" alt="lol" class="housePricePC">
                     </div>
                 </div>
             </div>
             <div class="row flex-md-row-reverse flex-column-reverse main-contnet2 justify-content-center align-items-center">                                
                 <div class=" col-10 col-md-5 col-xxl-4 preview4">                    
-                    <div class="">
-                        <img class="icon" src="../assets/JavaScript.png" alt="lolPic">
+                    <div>
+                        <img class="icon" src="../../assets/JavaScript.png" alt="lolPic">
                     </div>
                     <div class="title fs-1 fw-bolder mt-1 mt-md-3">JavaScript Quiz</div>
                     <div class="fs-3 tag fw-bolder mt-1 mt-md-3">Work with data</div>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="col-10 col-md-5 col-xxl-4 imgArea2">
                     <div class="image">
-                        <img src="../assets/jsquizapp.png" alt="lol" class="lol-wallpaper">
+                        <img src="../../assets/jsquizapp.png" alt="lol" class="lol-wallpaper">
                     </div>
                 </div>
             </div>
@@ -151,7 +151,7 @@
         content: ''; /* 伪元素内容为空 */
         position: absolute; /* 绝对定位 */
         left: 49.75%; /* 根据需要调整位置 */
-        top: -10px; /* 圆圈的垂直位置 */
+        top: 0px; /* 圆圈的垂直位置 */
         width: 10px; /* 圆圈的宽度 */
         height: 10px; /* 圆圈的高度 */
         background-color: white; /* 圆圈的颜色 */
@@ -206,8 +206,8 @@
         -webkit-background-clip: text;
         background-clip: text;
         padding-left: 70px;
-        margin-top: 100px;
-        margin-bottom: 14%;
+        /* margin-top: 100px;
+        margin-bottom: 14%; */
     }
     .preview3 {
         --tw-gradient-from: #60a5fa;
@@ -229,8 +229,8 @@
         -webkit-background-clip: text;
         background-clip: text;
         padding-left: 70px;
-        margin-top: 100px;
-        margin-bottom: 14%;
+        /* margin-top: 7%;
+        margin-bottom: 14%; */
     }
     .tag {
         color: transparent;
@@ -309,7 +309,8 @@
         line-height: 1.8;
     }
     .main-contnet2 {
-        margin-top: 200px;
+        margin-top: 100px;
+        min-height: 800px
     }
 }
 
@@ -355,7 +356,7 @@
         content: ''; /* 伪元素内容为空 */
         position: absolute; /* 绝对定位 */
         left: 4%; /* 根据需要调整位置 */
-        top: -10px; /* 圆圈的垂直位置 */
+        top: 0px; /* 圆圈的垂直位置 */
         width: 10px; /* 圆圈的宽度 */
         height: 10px; /* 圆圈的高度 */
         background-color: white; /* 圆圈的颜色 */
