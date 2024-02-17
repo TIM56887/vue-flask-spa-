@@ -1,19 +1,19 @@
 <template>
 <nav class="navbar">
     <div class="container-fluid">
-        <div class="row w-100 justify-content-between align-items-center">
-            <div class="col-3 ps-4 ">
+        <div class="d-flex w-100 justify-content-between align-items-center">
+            <div class="ps-4 ">
                 <h1 class="fs-4 lh-lg m-0"><a href="" class="text-decoration-none fw-bold text-secondary">TIM</a></h1>
             </div>
-            <div class="col-xxl-5 col-6 "> 
-                <ul class="w-100 d-flex lh-lg fs-4 text-center text-nowrap menu justify-content-center m-0" >
+            <div class=""> 
+                <ul class="w-100 d-flex lh-lg fs-4 text-center text-nowrap menu justify-content-center m-0 position-relative" >
                     <li class="px-5 rounded" @click="scrollTo('section1')">Project</li>
                     <li class="px-5 rounded" @click="scrollTo('section2')">Resources</li>
                     <li class="px-5 rounded" @click="scrollTo('section3')">About me</li>
-                    <li class="currentLine" :style="{left: leftpx + 'px'}" ></li>
+                    <li class="currentLine" :style="{left: leftpx + 'px'}" :class="{'d-none':hideLine }"></li>
                 </ul>
             </div>
-            <div class="col-3 hamburger">
+            <div class="hamburger">
                 <button class="navbar-toggler" type="button" @click="showMenu" >
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -34,7 +34,8 @@
             return{
                 isVisible:false,
                 scrollPosition: 0,
-                leftpx:365
+                leftpx:85,
+                hideLine: true
             }
         },
         methods: {
@@ -58,32 +59,38 @@
             }
         },
         mounted() {
-                window.addEventListener("scroll",this.updateScroll)
-            },
+            window.addEventListener("scroll",this.updateScroll)
+        },
         beforeDestroy(){
             window.removeEventListener("scroll",this.updateScroll)
         },
         computed:{
             section1Position(){
-                return document.getElementById("section1").offsetTop
+                return document.getElementById("section1").offsetTop - 200
             },
             section2Position(){
-                return document.getElementById("section2").offsetTop
+                return document.getElementById("section2").offsetTop -200
             },
             section3Position(){
-                return document.getElementById("section3").offsetTop
+                return document.getElementById("section3").offsetTop - 600
             },
         },
         watch:{
             scrollPosition(newVal){
-                console.log(newVal,this.section2Position,this.section3Position)
-                if(newVal > this.section2Position) {
-                    this.leftpx = 600;
+                console.log(newVal,this.section1Position,this.section2Position,this.section3Position)
+                console.log(newVal < this.section1Position)
+                if(newVal > this.section1Position && newVal < this.section2Position ) {
+                    this.hideLine = false;
+                    this.leftpx = 85;
+                }else if(newVal > this.section2Position && newVal < this.section3Position){
+                    this.hideLine = false;
+                    this.leftpx = 280;
+                } else if(newVal > this.section3Position){
+                    this.hideLine = false;
+                    this.leftpx = 485;
+                }else{
+                    this.hideLine = true;
                 }
-                if(newVal < this.section2Position) {
-                    this.leftpx = 365;
-                }
-                
             }
         }
 
@@ -94,11 +101,12 @@
 <style scoped>
 .currentLine{
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     height: 4px;
     width: 64px;
     background-color: #1e1e1e;
     padding: 0;
+    transition: all .2s ease-in-out;
 }
 .active {
   border-bottom: 2px solid #000; 
