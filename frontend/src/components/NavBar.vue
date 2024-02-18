@@ -3,14 +3,16 @@
     <div class="container-fluid">
         <div class="d-flex w-100 justify-content-between align-items-center">
             <div class="ps-4 ">
-                <h1 class="fs-4 lh-lg m-0"><a href="" class="text-decoration-none fw-bold text-secondary">TIM</a></h1>
+                <h1 class="fs-4 lh-lg m-0"><a href="/" class="text-decoration-none fw-bold text-secondary">TIM</a></h1>
             </div>
             <div class=""> 
                 <ul class="w-100 d-flex lh-lg fs-4 text-center text-nowrap menu justify-content-center m-0 position-relative" >
                     <li class="px-5 rounded" @click="scrollTo('section1')">Project</li>
                     <li class="px-5 rounded" @click="scrollTo('section2')">Resources</li>
                     <li class="px-5 rounded" @click="scrollTo('section3')">About me</li>
-                    <li class="currentLine" :style="{left: leftpx + 'px'}" :class="{'d-none':hideLine }"></li>
+                    <transition>
+                        <li class="currentLine" :style="{left: leftpx + 'px'}" v-if="!hideLine"></li>  
+                    </transition>
                 </ul>
             </div>
             <div class="hamburger">
@@ -35,7 +37,8 @@
                 isVisible:false,
                 scrollPosition: 0,
                 leftpx:85,
-                hideLine: true
+                hideLine: false,
+                clientHeight: document.documentElement.clientHeight
             }
         },
         methods: {
@@ -59,38 +62,44 @@
             }
         },
         mounted() {
-            window.addEventListener("scroll",this.updateScroll)
+            if (this.$route.path === '/'){
+                window.addEventListener("scroll",this.updateScroll)
+            }
+           
         },
         beforeDestroy(){
-            window.removeEventListener("scroll",this.updateScroll)
+            if (this.$route.path === '/') {
+                window.removeEventListener("scroll",this.updateScroll)
+            }
         },
         computed:{
             section1Position(){
-                return document.getElementById("section1").offsetTop - 200
+                return document.getElementById("section1").offsetTop -70
             },
             section2Position(){
-                return document.getElementById("section2").offsetTop -200
+                return document.getElementById("section2").offsetTop -70
             },
             section3Position(){
-                return document.getElementById("section3").offsetTop - 600
+                return document.getElementById("section3").offsetTop -  this.clientHeight - 70
             },
         },
         watch:{
             scrollPosition(newVal){
-                console.log(newVal,this.section1Position,this.section2Position,this.section3Position)
-                console.log(newVal < this.section1Position)
-                if(newVal > this.section1Position && newVal < this.section2Position ) {
-                    this.hideLine = false;
-                    this.leftpx = 85;
-                }else if(newVal > this.section2Position && newVal < this.section3Position){
-                    this.hideLine = false;
-                    this.leftpx = 280;
-                } else if(newVal > this.section3Position){
-                    this.hideLine = false;
-                    this.leftpx = 485;
-                }else{
-                    this.hideLine = true;
+                if (this.$route.path == '/'){
+                    if(newVal > this.section1Position && newVal < this.section2Position ) {
+                        this.hideLine = false;
+                        this.leftpx = 85;
+                    }else if(newVal > this.section2Position && newVal < this.section3Position){
+                        this.hideLine = false;
+                        this.leftpx = 280;
+                    }else if(newVal > this.section3Position){
+                        this.hideLine = false;
+                        this.leftpx = 485;
+                    }else{
+                        this.hideLine = true;
+                    }
                 }
+                
             }
         }
 
@@ -99,6 +108,15 @@
 </script>
 
 <style scoped>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
 .currentLine{
     position: absolute;
     bottom: 0px;

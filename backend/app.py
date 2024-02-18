@@ -27,7 +27,7 @@ def static_files(path):
 
 @app.route('/process', methods=['POST'])
 def process_form():
-    form_data = request.form 
+    form_data = request.get_json()
     data = []
     for key, value in form_data.items():
         data.append(value)
@@ -36,7 +36,7 @@ def process_form():
         "data":data,
         "price":price
     }
-    return render_template('housePricePrediction.html',predictPrice=predictPrice)
+    return predictPrice
 
 @app.route('/predict')
 def predict():
