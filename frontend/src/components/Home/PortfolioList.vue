@@ -57,15 +57,14 @@
                     <div class="fw-bolder mt-1 main-text">
                         <p>使用新北市政府提供之房價實價登錄資料。
                         利用python Pandas進行資料清理，經過系列的前處理步驟，處理缺失值、轉換類別資料特徵等，使得原始資料達到了可以進行模型訓練的狀態。使用scikit-learn線性回歸模型進行訓練。
-                        訓練及測試資料共29,764筆，特徵共13種(區域、土地坪數、樓層、最高樓層、建物型態、屋齡、建物總面積、房廳衛數、有無管理組織及電梯)
-                        
+                        訓練及測試資料共29,764筆，特徵共13種(區域、土地坪數、樓層、最高樓層、建物型態、屋齡、建物總面積、房廳衛數、有無管理組織及電梯)                  
                         </p>
                     </div>
                     <div class="linkArea">
-                        <a href="/predict" class="link">
+                        <router-link to="/housepricepredict" class="link">
                             <i class="bi bi-box-arrow-up-right"></i>
                             <div class="linkTxt">Go Try !</div>
-                        </a>
+                        </router-link>
                     </div>
                 </div>
                 <div class="col-10 col-md-5 col-xxl-4 imgArea3">

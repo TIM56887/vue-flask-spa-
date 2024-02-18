@@ -92,6 +92,7 @@ export default {
     position: absolute;
     left: 49%;
     bottom: 100px;
+    font-size: xx-small;
 }
 
 .fade-transition {
