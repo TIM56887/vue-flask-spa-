@@ -1,7 +1,7 @@
 <template>
     <div>
-        <HousePricePreview />
-        <HousePrice class="p-5"/>
+        <HousePricePreview v-if="showpreview" @changePage="changePage"/>
+        <HousePrice v-else @changePage="changePage" class="p-5"/>
     </div>
 </template>
 <script>
@@ -12,6 +12,16 @@ export default{
     components:{
         HousePrice,
         HousePricePreview
+    },
+    data(){
+        return{
+            showpreview: true,
+        }
+    },
+    methods:{
+        changePage(){
+            this.showpreview = !this.showpreview;
+        }
     }
 }
 

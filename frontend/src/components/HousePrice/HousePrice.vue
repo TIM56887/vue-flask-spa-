@@ -90,9 +90,11 @@
             <h1>{{ predictPrice }}</h1>
             <button type="button" class="btn btn-light" @click="predicted = false">Close</button>
         </div>
-        
     </div>
     <div v-if="predicted || fetching" class="overlay" @click="predicted = false"></div>
+    <button
+        @click="goPreview" 
+        type="button" class="btn btn-outline-secondary position-fixed bottom-0 start-0 fs-4 m-4"><i class="bi bi-chevron-double-left"></i>介紹</button>
  </section>
     
     
@@ -174,6 +176,9 @@ export default {
                 this.loadingAnimation = '';
             }
             
+        },
+        goPreview(){
+            this.$emit('changePage')
         }
     }
 
